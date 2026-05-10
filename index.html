@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>🌴 Orlando Trip Guide · May 17–22, 2026</title>
+<title>Orlando Trip Guide · May 17–22, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -121,11 +121,53 @@ body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--bg);color:v
 .scr.vis{opacity:1}
 @media(min-width:600px){.pnl{padding:0 20px}.g2{grid-template-columns:repeat(4,1fr)}}
 @media(min-width:900px){.wrap{max-width:680px;margin:0 auto}.htitle{font-size:19px}}
+
+/* ── SITE ICON ── */
+.site-icon{width:26px;height:26px;object-fit:contain;vertical-align:middle;margin-right:4px;flex-shrink:0}
+.site-icon-fallback{display:none}
+
+/* ── PARK BANNERS ── */
+.park-banner{position:relative;height:140px;overflow:hidden;border-radius:var(--r);margin-bottom:20px;background:var(--surf)}
+.banner-img{width:100%;height:100%;object-fit:cover;filter:blur(3px) brightness(0.38);transform:scale(1.08);display:block}
+.banner-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:16px 18px;background:linear-gradient(to top,rgba(0,0,0,.78) 0%,rgba(0,0,0,.2) 55%,transparent 100%)}
+.banner-title{font-family:'DM Serif Display',serif;font-size:20px;color:#fff;font-style:italic;line-height:1.2;text-shadow:0 2px 8px rgba(0,0,0,.55)}
+.banner-sub{font-size:11px;color:rgba(255,255,255,.72);margin-top:4px;font-weight:500;letter-spacing:.04em;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+
+/* ── HERO BACKGROUND ── */
+.hero{position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:-12px;background-image:url('images/hero-bg.jpg');background-size:cover;background-position:center 40%;filter:blur(10px) brightness(0.28) saturate(1.2);z-index:0}
+.hero>*:not(.hero-bg){position:relative;z-index:1}
+.hero-lbl,.hero-title,.hero-sub,.gpills,.gp{color:inherit}
+
+/* ── PHOTO RECREATION ── */
+.photo-rec-wrap{display:flex;gap:10px;flex-direction:column;margin-bottom:10px}
+.photo-rec-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;flex:1}
+.photo-rec-img-wrap{position:relative;width:100%;height:220px;overflow:hidden;background:var(--surf);display:flex;align-items:center;justify-content:center}
+.photo-rec-img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-rec-img-wrap.placeholder{background:var(--surf)}
+.photo-rec-img-wrap.placeholder::after{content:'[ Drop photo here ]';position:absolute;color:var(--t3);font-size:12px;font-style:italic}
+.photo-rec-caption{padding:10px 14px 12px}
+.photo-rec-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);margin-bottom:4px}
+.photo-rec-title{font-size:13px;font-weight:600;color:var(--txt);margin-bottom:3px}
+.photo-rec-desc{font-size:12px;color:var(--t2);line-height:1.5}
+
+/* ── RESPONSIVE ── */
+@media(min-width:600px){
+  .park-banner{height:185px}
+  .banner-title{font-size:26px}
+  .banner-sub{font-size:12px}
+  .photo-rec-wrap{flex-direction:row}
+  .photo-rec-img-wrap{height:260px}
+}
+@media(min-width:900px){
+  .park-banner{height:210px}
+  .photo-rec-img-wrap{height:300px}
+}
 </style>
 </head>
 <body>
 <header class="hdr">
-  <div class="htitle">🌴 <span>Orlando</span> Trip Guide</div>
+  <div class="htitle"><img src="images/icons/trip-icon.png" class="site-icon" alt="Trip icon" onerror="this.style.display='none'"><span>Orlando</span> Trip Guide</div>
   <button class="tbtn" onclick="toggleTheme()" id="thb">☀️ Light</button>
 </header>
 <nav class="nav-wrap">
@@ -137,17 +179,19 @@ body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--bg);color:v
     <button class="nb" onclick="go(this,'ep')">May 19 · EPCOT</button>
     <button class="nb" onclick="go(this,'un')">Universal</button>
     <button class="nb" onclick="go(this,'nx')">What's Next</button>
+    <button class="nb" onclick="go(this,'gl')">Glossary</button>
   </div>
 </nav>
 <main class="wrap">
 
 <!-- ═══ OVERVIEW ═══ -->
 <div id="pnl-ov" class="pnl act">
-<div class="hero">
+<div class="hero"><div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-lbl">Marc · Freha · Rob · Jenna</div>
   <div class="hero-title">The <span>Orlando</span> Trip</div>
   <div class="hero-sub">May 16–22, 2026 · Disney World + Universal</div>
   <div class="gpills">
+    <span class="gp">🛍️ Disney Springs · May 16</span>
     <span class="gp">🏰 Magic Kingdom · May 17</span>
     <span class="gp">🦁 AK + 🎬 HS · May 18</span>
     <span class="gp">🌍 EPCOT · May 19</span>
@@ -158,12 +202,12 @@ body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--bg);color:v
 
 <div class="sec"><div class="slbl">Trip at a glance</div>
 <div class="rl">
-  <div class="ir"><span class="lbl">May 16 (Sat)</span><span class="val">Check in · Port Orleans French Quarter</span></div>
+  <div class="ir"><span class="lbl">May 16 (Sat)</span><span class="val">Disney Springs · Activate Military Salute Tickets · Check in Port Orleans French Quarter</span></div>
   <div class="ir"><span class="lbl">May 17 (Sun)</span><span class="val">Magic Kingdom · Early Entry 8:30 AM · Check in Boardwalk Inn</span></div>
   <div class="ir"><span class="lbl">May 18 (Mon)</span><span class="val">Animal Kingdom AM → Hollywood Studios PM · Fantasmic 9 PM</span></div>
   <div class="ir"><span class="lbl">May 19 (Tue)</span><span class="val">EPCOT · Space 220 3 PM · Fireworks Cruise 7:45 PM · Check in Sapphire Falls</span></div>
-  <div class="ir"><span class="lbl">May 20 (Wed)</span><span class="val">Universal · <span class="tent-tag">TENTATIVE</span></span></div>
-  <div class="ir"><span class="lbl">May 21 (Thu)</span><span class="val">Universal · Mandalorian & Grogu (City Walk) 8 PM · <span class="tent-tag">TENTATIVE</span></span></div>
+  <div class="ir"><span class="lbl">May 20 (Wed)</span><span class="val">Islands of Adventure + USF · EPA at VelociCoaster 8 AM · <span class="tent-tag">TENTATIVE</span></span></div>
+  <div class="ir"><span class="lbl">May 21 (Thu)</span><span class="val">Epic Universe · Resort transport to/from south campus · Mandalorian 8 PM (optional) · <span class="tent-tag">TENTATIVE</span></span></div>
   <div class="ir"><span class="lbl">May 22 (Fri)</span><span class="val">Optional Disney · Rob & Jenna fly 6:50 PM · Marc & Freha → Gainesville</span></div>
 </div></div>
 
@@ -191,10 +235,18 @@ body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--bg);color:v
 <div class="ll-row"><div><div class="ll-name">Guardians of the Galaxy: Cosmic Rewind</div><div class="ll-sub">Single Pass · World Discovery</div></div><div class="ll-time"><div class="ll-window">11:20 AM–12:20 PM</div></div></div>
 <div class="ll-row"><div><div class="ll-name">Mission: SPACE</div><div class="ll-sub">Multi Pass · World Discovery</div></div><div class="ll-time"><div class="ll-window">1:25–2:25 PM</div></div></div>
 <div class="ll-row"><div><div class="ll-name">Living with the Land</div><div class="ll-sub">Multi Pass · World Nature</div></div><div class="ll-time"><div class="ll-window">2:10–3:10 PM</div></div></div>
+<div class="ll-row" style="border:1px dashed var(--bem);border-radius:var(--rs);padding:10px 12px;background:var(--abg)"><div><div class="ll-name" style="color:var(--amb)">Test Track</div><div class="ll-sub">Rolling pick after Frozen tap · ~4:30–5:30 PM window · World Discovery</div></div><div class="ll-time"><div class="ll-window" style="color:var(--amb)">~4:30–5:30 PM</div></div></div>
 <div class="ll-row"><div><div class="ll-name">Space 220 Lunch</div><div class="ll-sub">Dining reservation · Conf# 356076676256</div></div><div class="ll-time"><div class="ll-window">3:00 PM</div></div></div>
 <div class="ll-row"><div><div class="ll-name">EPCOT Fireworks Cruise</div><div class="ll-sub">Yacht Club Resort dock · Conf# 356076674279</div></div><div class="ll-time"><div class="ll-window">7:45 PM</div></div></div>
 </div></div>
 
+<div class="sec"><div class="slbl">May 16 — Disney Springs · activate military salute tickets</div>
+<div class="card blue"><div class="ct">🛍️ Disney Springs is our arrival day destination</div><div class="cb">
+Before we can use our Military Salute discounted park tickets at Magic Kingdom on May 17, they must first be <strong>activated in person at a Disney Springs Guest Services location</strong> or a Disney park ticket window. Disney Springs has a dedicated Guest Services desk that handles this without requiring a park ticket.<br><br>
+<b>What to bring:</b> Valid military ID (for the service member — Marc). All guests in the party who will receive discounted tickets should ideally be present, though the service member activates on their behalf.<br><br>
+<b>Where to go:</b> Guest Services at Disney Springs is located near the Town Center area. The activation process takes a few minutes — have everyone's names ready.<br><br>
+<b>After activation:</b> The day is ours. Disney Springs is a free-entry shopping, dining, and entertainment district. World of Disney store, the LEGO Store, The Edison bar, Homecoming restaurant, AMC Disney Springs theater. No park tickets needed — just arrive and explore. Confirm our POFQ check-in and get settled for the week.
+</div></div></div>
 <div class="sec"><div class="slbl">May 17 morning logistics — car & bags</div>
 <div class="card amb"><div class="ct">Before leaving for Magic Kingdom</div><div class="cb">
 <b>Step 1:</b> Drop bags at POFQ front desk (Bell Services). Disney transfers them to Boardwalk Inn while we're at MK.<br><br>
@@ -214,6 +266,13 @@ body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--bg);color:v
 
 <!-- ═══ MAY 17 MK ═══ -->
 <div id="pnl-mk" class="pnl">
+<div class="park-banner">
+  <img src="images/mk-banner.jpg" class="banner-img" alt="" loading="lazy">
+  <div class="banner-overlay">
+    <div class="banner-title">Magic Kingdom</div>
+    <div class="banner-sub">Sunday · May 17, 2026 · Early Entry 8:30 AM · Clockwise from Adventureland</div>
+  </div>
+</div>
 <div class="sec"><div class="slbl">May 17 — Magic Kingdom · clockwise from Adventureland</div>
 <div class="rl">
 <div class="ir"><span class="lbl">Entry</span><span class="val">Early Entry 8:30 AM · Main Street, turn LEFT at hub into Adventureland</span></div>
@@ -257,6 +316,13 @@ body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--bg);color:v
 
 <!-- ═══ EXIT PLAN ═══ -->
 <div id="pnl-ex" class="pnl">
+<div class="park-banner">
+  <img src="images/mk-night-banner.jpg" class="banner-img" alt="" loading="lazy">
+  <div class="banner-overlay">
+    <div class="banner-title">MK Exit Strategy</div>
+    <div class="banner-sub">Riding out the crowd · The TRON Maneuver · Minnie Van to Boardwalk</div>
+  </div>
+</div>
 <div class="sec"><div class="slbl">The mass exodus — what we're dealing with</div>
 <div class="card red"><div class="ct">Magic Kingdom end-of-night crush</div><div class="cb">MK hosts up to 80,000 guests. After Happily Ever After (~17 min, ~9 PM), most attempt to exit simultaneously. Main Street: shoulder-to-shoulder. Monorail + bus lines: 45–60+ min. This is one of the worst exit experiences at any theme park on Earth. We plan around it intentionally. <b>Being well-rested for AK early entry at 7:30 AM tomorrow is a completely valid reason to leave early.</b></div></div></div>
 
@@ -264,7 +330,7 @@ body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--bg);color:v
 <div class="hi"><div class="hi-t">TRON Ride 1 (3:15–4:15 PM Single Pass) + TRON Ride 2 (fireworks standby ~9 PM)</div><div class="hi-b">TRON standby drops to its daily floor (~20–35 min) during the 17-minute fireworks show while the entire park stands still on Main Street. We are in Tomorrowland moving the opposite direction. At 8:45 PM, walk toward TRON standby queue. Ride exits around 9:25–9:35 PM. At 9:20 PM (while still on the ride or exiting): open Lyft in MDE and request a Minnie Van to <strong>Boardwalk Inn.</strong></div></div></div>
 
 <div class="sec"><div class="slbl">Exit options — group decides on the night</div>
-<div class="ec rec"><div class="ec-h"><div class="ec-t">Option A — The TRON Maneuver</div><span class="bdg pur">Recommended if staying late</span></div><div class="ec-b">8:45 PM: Walk to TRON standby. Ride during fireworks (20–35 min wait). Exit ~9:25 PM. Request Minnie Van to Boardwalk Inn from inside the park. <b>Minnie Van pickup is inside the park gates</b> — bypasses the Main Street crush entirely. Cost: ~$35–50, split four ways = ~$9–13 each.</div></div>
+<div class="ec rec"><div class="ec-h"><div class="ec-t">Option A — Ride Out the Crowd (The TRON Maneuver + more)</div><span class="bdg pur">Recommended</span></div><div class="ec-b">The strategy is simple: while the rest of the park floods Main Street for fireworks, we stay deep in Tomorrowland and Fantasyland riding everything with short waits. The goal isn't just TRON — it's stacking as many good rides as possible until the exodus wave crests and clears.<br><br><b>~8:45 PM:</b> Head to TRON standby queue. Ride during fireworks (20–35 min wait, vs. 60–90+ earlier). Exit TRON ~9:20–9:30 PM.<br><br><b>After TRON:</b> Keep riding. Space Mountain (~15–25 min during fireworks), Seven Dwarfs Mine Train, Big Thunder Mountain, PeopleMover — all have dramatically reduced waits during and immediately after the show. Stack rides for 30–45 min until the Main Street wave thins.<br><br><b>~9:45–10 PM:</b> Exit when the crowd has organically dispersed. Request Minnie Van to Boardwalk Inn from inside the park. <b>Minnie Van pickup is inside the park gates</b> — bypasses the Main Street crush entirely. Cost: ~$35–50, split four ways = ~$9–13 each.</div></div>
 <div class="ec"><div class="ec-h"><div class="ec-t">Option B — Leave before fireworks</div><span class="bdg grn">Smart AK prep call</span></div><div class="ec-b">Exit around 8:30–8:45 PM before the exodus begins. Request Minnie Van or rideshare to Boardwalk Inn. <b>AK early entry is 7:30 AM tomorrow</b> — being well-rested is worth more than a second TRON ride. No shame in calling it early. This is arguably the smartest call given what tomorrow requires.</div></div>
 <div class="ec"><div class="ec-h"><div class="ec-t">Option C — California Grill (if reservation kept)</div><span class="bdg amb">Best fireworks scenario</span></div><div class="ec-b">Exit by 7:15 PM, walk 15–20 min to Contemporary, arrive for 8:20 PM reservation. Disney dims lights and pauses service for fireworks — watch Happily Ever After from the restaurant rooftop over the Seven Seas Lagoon. Crowd-free, cocktail in hand. Forfeit second TRON ride. Truly spectacular if the reservation stays.</div></div>
 
@@ -281,6 +347,13 @@ body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--bg);color:v
 
 <!-- ═══ MAY 18 AK→HS ═══ -->
 <div id="pnl-ak" class="pnl">
+<div class="park-banner">
+  <img src="images/ak-banner.jpg" class="banner-img" alt="" loading="lazy">
+  <div class="banner-overlay">
+    <div class="banner-title">Animal Kingdom → Hollywood Studios</div>
+    <div class="banner-sub">Monday · May 18, 2026 · Safari at First Light · Fantasmic! 9 PM</div>
+  </div>
+</div>
 <div class="sec"><div class="slbl">May 18 — Animal Kingdom → Hollywood Studios</div>
 <div class="rl">
 <div class="ir"><span class="lbl">AK arrival</span><span class="val">Early entry ~7:30 AM if possible · straight to Africa for Safari</span></div>
@@ -327,6 +400,13 @@ body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--bg);color:v
 
 <!-- ═══ MAY 19 EPCOT ═══ -->
 <div id="pnl-ep" class="pnl">
+<div class="park-banner">
+  <img src="images/epcot-banner.jpg" class="banner-img" alt="" loading="lazy">
+  <div class="banner-overlay">
+    <div class="banner-title">EPCOT</div>
+    <div class="banner-sub">Tuesday · May 19, 2026 · International Gateway · Fireworks Cruise 7:45 PM</div>
+  </div>
+</div>
 <div class="sec"><div class="slbl">May 19 — EPCOT · our last Disney day</div>
 <div class="rl">
 <div class="ir"><span class="lbl">Entry</span><span class="val">International Gateway (Boardwalk side) · Early Entry 8:30 AM</span></div>
@@ -346,22 +426,47 @@ body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--bg);color:v
 <div class="ll-row"><div><div class="ll-name">Guardians of the Galaxy: Cosmic Rewind <span class="bdg pur" style="font-size:10px;margin-left:4px">Single Pass</span></div><div class="ll-sub">World Discovery · no-fail must-do · Thrill-Data showed very limited availability</div></div><div class="ll-time"><div class="ll-window">11:20 AM–12:20 PM</div></div></div>
 <div class="ll-row"><div><div class="ll-name">Mission: SPACE <span class="bdg blue" style="font-size:10px;margin-left:4px">Tier 2 Multi Pass</span></div><div class="ll-sub">World Discovery · Test Track not booked · both are close together</div></div><div class="ll-time"><div class="ll-window">1:25–2:25 PM</div></div></div>
 <div class="ll-row"><div><div class="ll-name">Living with the Land <span class="bdg blue" style="font-size:10px;margin-left:4px">Tier 2 Multi Pass</span></div><div class="ll-sub">World Nature · Marc & Freha MUST · tap right after Mission: SPACE</div></div><div class="ll-time"><div class="ll-window">2:10–3:10 PM</div></div></div>
+<div class="ll-row" style="border:1px dashed var(--bem);border-radius:var(--rs);padding:10px 12px;background:var(--abg)"><div><div class="ll-name" style="color:var(--amb)">Test Track</div><div class="ll-sub">Rolling pick after Frozen tap · ~4:30–5:30 PM window · World Discovery</div></div><div class="ll-time"><div class="ll-window" style="color:var(--amb)">~4:30–5:30 PM</div></div></div>
 <div class="ll-row"><div><div class="ll-name">Space 220 Lunch</div><div class="ll-sub">World Discovery · Conf# 356076676256</div></div><div class="ll-time"><div class="ll-window">3:00 PM</div></div></div>
 <div class="ll-row"><div><div class="ll-name">Fireworks Cruise · EPCOT</div><div class="ll-sub">Yacht Club Resort dock · Conf# 356076674279 · leave IG by 7:15 PM</div></div><div class="ll-time"><div class="ll-window">7:45 PM</div></div></div></div>
 
+<div class="sec"><div class="slbl">📸 Photos to recreate — our reference shots</div>
+<div class="card amb"><div class="cb">We're recreating two childhood photos near Spaceship Earth at EPCOT. The exact locations will be refined once we see the originals on site. Bring the originals — a PhotoPass photographer can help match the framing. Add both photos below before the trip.</div></div>
+<div class="photo-rec-wrap">
+  <div class="photo-rec-card">
+    <div class="photo-rec-img-wrap">
+      <img src="images/photo-freha-reference.jpg" class="photo-rec-img" alt="Freha's childhood photo reference" loading="lazy" onerror="this.parentElement.classList.add('placeholder');this.style.display='none'">
+    </div>
+    <div class="photo-rec-caption">
+      <div class="photo-rec-label">Reference · Freha</div>
+      <div class="photo-rec-title">Freha's childhood photo near EPCOT</div>
+      <div class="photo-rec-desc">Taken early-to-mid 1990s · near Spaceship Earth · exact angle TBD on site</div>
+    </div>
+  </div>
+  <div class="photo-rec-card">
+    <div class="photo-rec-img-wrap">
+      <img src="images/photo-marc-reference.jpg" class="photo-rec-img" alt="Marc's family photo reference" loading="lazy" onerror="this.parentElement.classList.add('placeholder');this.style.display='none'">
+    </div>
+    <div class="photo-rec-caption">
+      <div class="photo-rec-label">Reference · Marc</div>
+      <div class="photo-rec-title">Marc's early-90s family photo near EPCOT</div>
+      <div class="photo-rec-desc">Taken early 1990s · near Spaceship Earth · bring original for exact framing</div>
+    </div>
+  </div>
+</div></div>
 <div class="sec"><div class="slbl">Full EPCOT day timeline</div>
 <div class="tl">
 <div class="tli"><div class="tll"><span class="tlt">7:45</span><div class="dot grn"></div></div><div class="tlc"><div class="ttl">Arrive at International Gateway</div><div class="tds">Short walk from Boardwalk Inn. Security opens early. Position for 8:30 Early Entry.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">8:30</span><div class="dot grn"></div></div><div class="tlc"><div class="ttl">Rope drop — Remy's Ratatouille Adventure standby</div><div class="tds">Steps from the International Gateway. <strong>No-fail</strong> — rope drop it. Standby at 8:30 AM: 5–15 min vs. 50–70 min later. France Pavilion Patisserie opens early — croissants and coffee immediately after Remy's. Start the World Showcase morning here in France.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">9:00</span><div class="dot amb"></div></div><div class="tlc"><div class="ttl">Counter-clockwise World Showcase begins</div><div class="tds">France pastries → UK (gardens) → Canada → <strong>American Adventure</strong> (worth 30 min — excellent Audio-Animatronics show, Ben Franklin and Mark Twain) → Italy → Germany → <strong>Japan Pavilion</strong> (Mitsukoshi Department Store — key shopping stop, budget 20–30 min, sake tastings, unique imports).</div></div></div>
-<div class="tli"><div class="tll"><span class="tlt">10:30</span><div class="dot amb"></div></div><div class="tlc"><div class="ttl">Norway — Frozen Ever After LL</div><div class="tds"> <strong>Frozen Ever After LL (9:50–10:50 AM window)</strong>. Upgraded Kristoff, Anna, and Elsa animatronics are impressive post-rehab. After tapping: book a rolling pick for Spaceship Earth or any remaining priority.</div></div></div>
+<div class="tli"><div class="tll"><span class="tlt">10:30</span><div class="dot amb"></div></div><div class="tlc"><div class="ttl">Norway — Frozen Ever After LL</div><div class="tds"><strong>Frozen Ever After LL (9:50–10:50 AM window)</strong>. Upgraded Kristoff, Anna, and Elsa animatronics are impressive post-rehab. <strong>After tapping (tiers now gone):</strong> immediately book <strong>Test Track rolling for ~4:30–5:30 PM</strong> in the afternoon flex block. Test Track is in World Discovery right near Mission: SPACE and Living with the Land — it fits naturally into the post-Space 220 afternoon. Also book Spaceship Earth or any remaining priority rolling.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">11:15</span><div class="dot amb"></div></div><div class="tlc"><div class="ttl">Mexico Pavilion · Gran Fiesta Tour</div><div class="tds">Walk-on, 8-min peaceful boat ride inside the pyramid. Good leg rest before the ride block. Then transition to World Discovery.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">11:20</span><div class="dot pur"></div></div><div class="tlc"><div class="ttl">Guardians of the Galaxy: Cosmic Rewind · Single Pass</div><div class="tds">Pre-booked 11:20 AM–12:20 PM. Thrill-Data availability map showed <strong>very limited and gapped availability all day</strong> for Guardians — confirming why Single Pass was essential. Backwards-launching coaster with 70s/80s/90s soundtrack. First time for everyone. Must-do, no-fail. Well before lunch — don't ride right before a big meal.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">12:15</span><div class="dot amb"></div></div><div class="tlc"><div class="ttl">World Discovery exploration</div><div class="tds">Spaceship Earth standby (~10–20 min mid-day, classic EPCOT must-do). Journey of Water — Inspired by Moana (outdoor walkthrough, no wait, interactive).</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">1:25</span><div class="dot blue"></div></div><div class="tlc"><div class="ttl">Mission: SPACE · Multi Pass LL</div><div class="tds">Pre-booked 1:25–2:25 PM. <strong>Green Mission</strong> = non-spinning, educational space flight sim. <strong>Orange Mission</strong> = intense g-force centrifuge — choose based on group comfort. Both are in World Discovery. Tap promptly — Living with the Land window starts at 2:10 PM and both are nearby.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">2:10</span><div class="dot blue"></div></div><div class="tlc"><div class="ttl">Living with the Land · Multi Pass LL</div><div class="tds">Pre-booked 2:10–3:10 PM. Marc & Freha MUST from the original planning spreadsheet. Classic EPCOT boat ride through working greenhouses and aquaculture labs that supply EPCOT's restaurants. Calm, educational, the spiritual heart of original EPCOT. Perfect pre-lunch wind-down.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">3:00</span><div class="dot tel"></div></div><div class="tlc"><div class="ttl">Space 220 · lunch reservation</div><div class="tds">World Discovery, near Living with the Land. The space elevator + dining 220 miles above Earth. Simulated planet view from orbit is stunning. Budget 90 min. Done by ~4:30 PM.</div></div></div>
-<div class="tli"><div class="tll"><span class="tlt">4:30–7:00</span><div class="dot amb"></div></div><div class="tlc"><div class="ttl">Afternoon flex</div><div class="tds">The Seas with Nemo & Friends (short standby, relaxing family ride). UK Pavilion Rose & Crown for a pint. Final Japan and France shopping. Any remaining rolling picks. Test Track standby (not pre-booked but Thrill-Data showed availability — can do standby if waits are reasonable).</div></div></div>
+<div class="tli"><div class="tll"><span class="tlt">4:30–7:00</span><div class="dot amb"></div></div><div class="tlc"><div class="ttl">Afternoon flex — Test Track + World Showcase finish</div><div class="tds"><strong>Test Track rolling LL</strong> (~4:30–5:30 PM, booked after Frozen tap): Design our virtual concept car and race it through the high-speed test circuit. World Discovery — right next to where we just had lunch. A solid ride that closes out the main ride block.<br><br>The Seas with Nemo & Friends (short standby, relaxing family ride). UK Pavilion Rose & Crown for a pint. Final Japan and France shopping. Any additional rolling picks as they become available.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">7:00</span><div class="dot red"></div></div><div class="tlc"><div class="ttl">Begin heading toward International Gateway</div><div class="tds">France and UK are right there. Don't cut it close.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">7:15</span><div class="dot red"></div></div><div class="tlc"><div class="ttl">Leave International Gateway · walk to dock</div><div class="tds">~5 min walk to the Yacht Club Resort marina. This is a firm deadline.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">7:45</span><div class="dot tel"></div></div><div class="tlc"><div class="ttl">🚢 EPCOT Fireworks Cruise · Crescent Lake</div><div class="tds">Private pontoon. Scenic lagoon tour toward Hollywood Studios (faint Fantasmic effects as we pass). Then dock near the International Gateway bridge for Luminous: The Symphony of Us.<br><br>
@@ -375,20 +480,27 @@ body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--bg);color:v
 
 <!-- ═══ UNIVERSAL ═══ -->
 <div id="pnl-un" class="pnl">
-<div class="al amb"><strong>TENTATIVE — May 20–21 · Universal Orlando</strong><p>This section is a planning framework. Details, LL/Express strategy, and specific times will be refined as we get closer. All content subject to update.</p></div>
+<div class="park-banner">
+  <img src="images/universal-banner.jpg" class="banner-img" alt="" loading="lazy">
+  <div class="banner-overlay">
+    <div class="banner-title">Universal Orlando</div>
+    <div class="banner-sub">May 20–21, 2026 · IOA + USF · Epic Universe · Loews Sapphire Falls</div>
+  </div>
+</div>
+<div class="al amb"><strong>TENTATIVE — May 20–21 · Universal Orlando</strong><p>This section is a planning framework to be refined with more data. Confirmed: May 20 = Islands of Adventure + Universal Studios Florida. May 21 = Epic Universe. Resort transportation will be used to and from Epic Universe on May 21.</p></div>
 
 <div class="sec"><div class="slbl">Critical — Epic Universe cannot park hop with IOA or USF</div>
 <div class="card red"><div class="ct">Epic Universe is on a completely separate campus</div><div class="cb">Epic Universe is located ~15 minutes south of Universal's main property (Islands of Adventure + Universal Studios Florida + CityWalk). <strong>Park-hopping between Epic Universe and the other parks is not available.</strong> Each campus must be its own dedicated day. This makes the order decision simple: one day = Epic Universe, one day = IOA + USF.</div></div></div>
 
-<div class="sec"><div class="slbl">Recommended order — subject to group discussion</div>
-<div class="card grn"><div class="ct">Recommendation: May 20 Epic Universe · May 21 IOA + USF</div><div class="cb">
-<b>May 20 (Wed) → Epic Universe:</b> Fresh legs for the newest park. Midweek is one of the best crowd days. Loews Sapphire Falls (our hotel) is on the north campus — Epic Universe is on the south campus, so you'll need transportation between (park shuttle, rideshare, or drive). Early Park Admission (EPA) available for hotel guests: typically 8 AM entry for a 9 AM open.<br><br>
-<b>May 21 (Thu) → Islands of Adventure + Universal Studios:</b> Velocicoaster as the Savannah focus. IOA is walking distance from Sapphire Falls — easy EPA morning at 8 AM. Park hop to USF included on most tickets. City Walk is between both parks, making the <strong>Mandalorian & Grogu at 8 PM</strong> a natural cap to the day.<br><br>
-<b>The Mandalorian anchor:</b> If we attend the 8 PM showing on May 21 at City Walk AMC, IOA/USF is definitively May 21 (City Walk is on the north campus). Epic Universe is definitively May 20. This is the cleanest logical ordering.
+<div class="sec"><div class="slbl">Confirmed plan — IOA + USF first, Epic Universe second</div>
+<div class="card grn"><div class="ct">May 20 · Islands of Adventure + USF &nbsp;|&nbsp; May 21 · Epic Universe</div><div class="cb">
+<b>May 20 (Wed) → Islands of Adventure + Universal Studios Florida:</b> This is our original plan and the right call. The primary driver is maximizing time at IOA with Early Park Admission (EPA). Loews Sapphire Falls is on the north campus — IOA is a short walk away. EPA gets us in at 8 AM to rope drop VelociCoaster with minimal wait and ride it multiple times before the 9 AM crowds arrive. Hagrid's follows immediately after. Starting the Universal leg here while legs are freshest makes the most of our most high-intensity coaster day.<br><br>
+<b>May 21 (Thu) → Epic Universe:</b> Epic Universe is on the south campus, approximately 15 minutes from Sapphire Falls. We use <strong>resort transportation</strong> to and from Epic Universe both ways — no driving needed. A full day at Epic's five themed worlds. The Mandalorian & Grogu at City Walk AMC at 8 PM is the cherry on top if we want it — resort transport back to the north campus in the evening makes this possible.<br><br>
+<b>Why this order:</b> IOA with fresh legs and EPA gives us the best possible shot at multiple VelociCoaster laps. Epic Universe, while incredible, has more indoor/dark ride variety that doesn't demand the same early-morning coaster sprint intensity.
 </div></div></div>
 
-<div class="sec"><div class="slbl">Epic Universe — May 20 · what to know</div>
-<div class="card blue"><div class="ct">Opened May 22, 2025 · EPA typically 8 AM · Park typically 9 AM–9 PM</div><div class="cb">Epic Universe is Universal's newest park and the most ambitious theme park expansion in decades. Five distinct themed worlds, all with their own visual identity. No park hop available to/from this location.</div></div>
+<div class="sec"><div class="slbl">Islands of Adventure + USF — May 20 · EPA day · VelociCoaster focus</div>
+<div class="card blue"><div class="ct">IOA + USF · EPA at 8 AM · Walk from Sapphire Falls · Park-to-Park ticket</div><div class="cb">Islands of Adventure and Universal Studios Florida are on the north campus — walking distance from Loews Sapphire Falls. Early Park Admission (EPA) gets us in one hour before official opening. For IOA: head directly to VelociCoaster for multiple early laps. Park-to-Park tickets allow us to hop between IOA and USF (and ride the Hogwarts Express between them) throughout the day.</div></div>
 <div class="park-card"><div class="park-name">🏰 Wizarding World of Harry Potter — Ministry of Magic</div><div class="park-tag">Fantastic Beasts era · 1920s Paris setting</div>
 <ul class="ride-list">
 <li class="ride-item"><span class="ride-pri">⭐</span><div><strong>Harry Potter and the Battle at the Ministry</strong> — flagship dark ride, the most technically ambitious attraction in the park</div></li>
@@ -412,29 +524,48 @@ body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--bg);color:v
 </ul></div>
 <div class="tip"><span class="tip-icon">→</span><span>Epic Universe has 11 attractions total. With Express Pass, everything can be done in one day comfortably. Without Express, strategic rope-drop + timing covers most of it. Check Universal's Virtual Line / Express availability closer to the date.</span></div></div>
 
-<div class="sec"><div class="slbl">Islands of Adventure + Universal Studios — May 21</div>
-<div class="park-card"><div class="park-name">🦕 Islands of Adventure</div><div class="park-tag">EPA at 8 AM · Park-to-Park ticket to USF · Velocicoaster priority</div>
+<div class="sec"><div class="slbl">Epic Universe — May 21 · resort transport both ways</div>
+<div class="park-card"><div class="park-name">🦕 Islands of Adventure — May 20</div><div class="park-tag">EPA at 8 AM · Walk from Sapphire Falls · VelociCoaster is Priority #1</div>
 <ul class="ride-list">
-<li class="ride-item"><span class="ride-pri">⭐</span><div><strong>VelociCoaster</strong> — Priority #1. Rope drop at 8 AM for multiple early laps with minimal wait. Top-hat element, 155 ft, 70 mph launch coaster. One of the best coasters in the world. Get here first, ride multiple times while waits are 5–15 min, then let it build.</div></li>
-<li class="ride-item"><span class="ride-pri">⭐</span><div><strong>Hagrid's Motorbike Adventures</strong> — requires early rope drop or Express Pass. One of the most immersive ride experiences ever built. Lines build very quickly. EPA rope drop at 8 AM or have Express Pass ready.</div></li>
-<li class="ride-item"><span class="ride-pri">⭐</span><div><strong>Harry Potter and the Forbidden Journey</strong> — castle walkthrough + dark ride. Do after VelociCoaster while lines are still building.</div></li>
-<li class="ride-item"><span class="ride-pri">●</span><div><strong>Jurassic World Ride</strong> — water-based, you will get wet. Decide as a group.</div></li>
-<li class="ride-item"><span class="ride-pri">●</span><div><strong>The Amazing Adventures of Spider-Man</strong> — classic IOA dark ride, still excellent.</div></li>
+<li class="ride-item"><span class="ride-pri">⭐</span><div><strong>VelociCoaster</strong> — Rope drop at 8 AM with EPA. Ride it multiple times while waits are 5–15 min before the crowds build. 155 ft, 70 mph top-hat launch coaster — one of the best in the world. This is the primary reason IOA is on Day 1 with fresh legs.</div></li>
+<li class="ride-item"><span class="ride-pri">⭐</span><div><strong>Hagrid's Motorbike Adventures</strong> — EPA rope drop immediately after VelociCoaster laps, or have Express Pass ready. One of the most immersive ride experiences ever built. Lines build extremely quickly.</div></li>
+<li class="ride-item"><span class="ride-pri">⭐</span><div><strong>Harry Potter and the Forbidden Journey</strong> — castle walkthrough + dark ride. Do after VelociCoaster while lines are still manageable.</div></li>
+<li class="ride-item"><span class="ride-pri">●</span><div><strong>Jurassic World Ride</strong> — water-based, you will get wet. Group decision.</div></li>
+<li class="ride-item"><span class="ride-pri">●</span><div><strong>The Amazing Adventures of Spider-Man</strong> — classic IOA dark ride.</div></li>
 </ul></div>
-<div class="park-card"><div class="park-name">🎬 Universal Studios Florida</div><div class="park-tag">Park hop from IOA · same property · walkable or take the Hogwarts Express</div>
+<div class="park-card"><div class="park-name">🎬 Universal Studios Florida — May 20</div><div class="park-tag">Park hop from IOA · Hogwarts Express connects both parks · Park-to-Park ticket required</div>
 <ul class="ride-list">
-<li class="ride-item"><span class="ride-pri">⭐</span><div><strong>Hogwarts Express</strong> — ride this between Hogsmeade (IOA) and Diagon Alley (USF). Different experience in each direction. Requires Park-to-Park ticket.</div></li>
-<li class="ride-item"><span class="ride-pri">⭐</span><div><strong>Hollywood Rip Ride Rockit</strong> — front-of-park launched coaster, pick your own soundtrack.</div></li>
-<li class="ride-item"><span class="ride-pri">●</span><div><strong>Race Through New York Starring Jimmy Fallon</strong> — air-conditioned virtual reality coaster, fun group ride.</div></li>
+<li class="ride-item"><span class="ride-pri">⭐</span><div><strong>Hogwarts Express</strong> — Different experience each direction (Hogsmeade → Diagon Alley and back). Requires Park-to-Park ticket.</div></li>
+<li class="ride-item"><span class="ride-pri">⭐</span><div><strong>Hollywood Rip Ride Rockit</strong> — launched coaster, pick your own hidden song.</div></li>
+<li class="ride-item"><span class="ride-pri">●</span><div><strong>Race Through New York Starring Jimmy Fallon</strong> — air-conditioned, fun group ride.</div></li>
 <li class="ride-item"><span class="ride-pri">●</span><div><strong>Revenge of the Mummy</strong> — classic launched indoor coaster, surprisingly intense.</div></li>
 </ul></div>
-<div class="card amb"><div class="ct">🎬 The Mandalorian & Grogu · City Walk AMC · May 21 at 8:00 PM</div><div class="cb">City Walk is steps from both IOA and USF exits — a natural cap to the day. Wrap up at the parks by ~6:30–7 PM, freshen up or grab dinner at City Walk, and catch the 8 PM showing. Marc can refund the tickets if the plan changes. If we go, it locks May 21 as the IOA/USF day definitively — which aligns with the recommended order.</div></div>
-<div class="tip"><span class="tip-icon">→</span><span><strong>Loews Sapphire Falls guests get EPA</strong> at both IOA and Epic Universe. For IOA on May 21: head directly to VelociCoaster at 8 AM. Ride it 3–4 times before the 9 AM crowds hit. Then Hagrid's immediately after.</span></div>
-<div class="tip"><span class="tip-icon">→</span><span><strong>Express Pass consideration:</strong> IOA and USF in one day with Velocicoaster, Hagrid's, Forbidden Journey, and USF rides is ambitious. Express Pass (available at Sapphire Falls at a discount) can dramatically reduce wait times, especially for Hagrid's. Worth pricing out before May 20.</span></div></div>
+<div class="tip"><span class="tip-icon">→</span><span><strong>Loews Sapphire Falls guests get EPA</strong> at IOA. Head directly to VelociCoaster at 8 AM — ride it 3–4 times before 9 AM crowds arrive. Then Hagrid's. Then Forbidden Journey. Then park hop to USF for Hogwarts Express + Diagon Alley.</span></div>
+<div class="tip"><span class="tip-icon">→</span><span><strong>Express Pass consideration:</strong> Available at Sapphire Falls (on-property discount). With VelociCoaster, Hagrid's, Forbidden Journey, Hogwarts Express, and USF rides all in one day, Express Pass can make the difference between riding everything and missing key experiences. Worth pricing before May 20.</span></div>
+
+<div class="park-card" style="margin-top:16px"><div class="park-name">🌌 Epic Universe — May 21 (five themed worlds)</div><div class="park-tag">Resort transport from Sapphire Falls · South campus · EPA typically 8 AM</div>
+<ul class="ride-list">
+<li class="ride-item"><span class="ride-pri">⭐</span><div><strong>Harry Potter and the Battle at the Ministry</strong> — Ministry of Magic world, flagship dark ride, most technically ambitious attraction in the park</div></li>
+<li class="ride-item"><span class="ride-pri">⭐</span><div><strong>Dragon Racers</strong> — How to Train Your Dragon · Isle of Berk · dual-track launch coaster</div></li>
+<li class="ride-item"><span class="ride-pri">⭐</span><div><strong>Mario Kart: Bowser's Challenge</strong> — Super Nintendo World · AR headset kart racing through iconic tracks</div></li>
+<li class="ride-item"><span class="ride-pri">⭐</span><div><strong>Donkey Kong Mine-Cart Madness</strong> — Super Nintendo World · high-speed outdoor coaster</div></li>
+<li class="ride-item"><span class="ride-pri">⭐</span><div><strong>Monsters Unchained: The Frankenstein Experiment</strong> — Celestial Park · indoor dark coaster, highly themed</div></li>
+<li class="ride-item"><span class="ride-pri">●</span><div><strong>Power-Up Bands</strong> — Super Nintendo World interactive wristband quests throughout the land</div></li>
+<li class="ride-item"><span class="ride-pri">●</span><div><strong>Celestial Park</strong> — central hub with water features; the most beautiful park entrance at Universal</div></li>
+</ul></div>
+<div class="card amb"><div class="ct">🎬 The Mandalorian & Grogu · City Walk AMC · May 21 at 8:00 PM (optional)</div><div class="cb">The cherry on top. After Epic Universe, resort transport returns us to the north campus. City Walk AMC is steps from Sapphire Falls. Wrap up Epic Universe by ~6:30 PM, return to hotel, freshen up, and catch the 8 PM showing. Marc can refund if the group prefers an early night after a full Epic day. Either way, May 21 is Epic Universe.</div></div>
+<div class="tip"><span class="tip-icon">→</span><span><strong>Epic Universe has 11 attractions total.</strong> With strategic rope-drop and EPA (typically 8 AM entry for hotel guests), everything can be covered in one full day. More data and a detailed plan coming as we get closer.</span></div></div>
 </div>
 
 <!-- ═══ WHAT'S NEXT ═══ -->
 <div id="pnl-nx" class="pnl">
+<div class="park-banner">
+  <img src="images/wrapup-banner.jpg" class="banner-img" alt="" loading="lazy">
+  <div class="banner-overlay">
+    <div class="banner-title">What's Next</div>
+    <div class="banner-sub">May 22 options · Airport drop · Marc & Freha → Gainesville</div>
+  </div>
+</div>
 <div class="sec"><div class="slbl">May 22 — optional extra Disney day</div>
 <div class="card tel"><div class="ct">Rob & Jenna fly at 6:50 PM from Orlando · 4th day of park hopper unused</div><div class="cb">
 Rob and Jenna have a 4-day park hopper — May 17, 18, and 19 use 3 days. <strong>Day 4 is still unused.</strong> Marc and Freha have annual passes. A May 22 morning Disney visit is entirely feasible:<br><br>
@@ -469,6 +600,81 @@ Tesla Model 3 trunk: ~15 cu ft. Frunk: ~2.7 cu ft. For 4 people with 3–4 large
 <b>If doing the May 22 Disney day:</b> Drive from Disney park → MCO drop → Gainesville. Simple.<br><br>
 <b>If skipping May 22 Disney:</b> Depart from Sapphire Falls, drive to MCO, drop Rob & Jenna, continue to Gainesville.
 </div></div></div>
+</div>
+
+<!-- ═══ GLOSSARY ═══ -->
+<div id="pnl-gl" class="pnl">
+<div class="sec"><div class="slbl">Acronyms & abbreviations used in this guide</div>
+<div class="al blue"><strong>Quick reference</strong><p>This guide uses shorthand throughout to keep things concise on mobile. Here's every acronym decoded in one place.</p></div>
+
+<div class="sec"><div class="slbl">Disney parks & locations</div>
+<div class="rl">
+<div class="ir"><span class="lbl">WDW</span><span class="val">Walt Disney World Resort (Orlando)</span></div>
+<div class="ir"><span class="lbl">MK</span><span class="val">Magic Kingdom Park</span></div>
+<div class="ir"><span class="lbl">AK</span><span class="val">Disney's Animal Kingdom Theme Park</span></div>
+<div class="ir"><span class="lbl">HS</span><span class="val">Disney's Hollywood Studios</span></div>
+<div class="ir"><span class="lbl">EPCOT</span><span class="val">Experimental Prototype Community of Tomorrow (no longer a true acronym — it's just EPCOT)</span></div>
+<div class="ir"><span class="lbl">WS</span><span class="val">World Showcase (the international pavilions ring at EPCOT)</span></div>
+<div class="ir"><span class="lbl">IG</span><span class="val">International Gateway (EPCOT's secondary entrance near Boardwalk)</span></div>
+<div class="ir"><span class="lbl">POFQ</span><span class="val">Port Orleans French Quarter (our first Disney resort)</span></div>
+</div></div>
+
+<div class="sec"><div class="slbl">Lightning Lane</div>
+<div class="rl">
+<div class="ir"><span class="lbl">LL</span><span class="val">Lightning Lane — Disney's skip-the-standby-line system</span></div>
+<div class="ir"><span class="lbl">LLMP / MP</span><span class="val">Lightning Lane Multi Pass — up to 3 pre-selected ride windows + rolling picks after each tap</span></div>
+<div class="ir"><span class="lbl">LLSP / SP</span><span class="val">Lightning Lane Single Pass — individual purchase for one specific headliner attraction</span></div>
+<div class="ir"><span class="lbl">Rolling pick</span><span class="val">A new LL selection that unlocks the moment you tap/scan into a Multi Pass LL. Only Multi Pass taps trigger this — Single Pass taps do not.</span></div>
+<div class="ir"><span class="lbl">Grace period</span><span class="val">Officially ±15 min before/after your LL arrival window. Arrive within your window.</span></div>
+<div class="ir"><span class="lbl">Tier 1 / Tier 2</span><span class="val">Pre-booking groupings for Multi Pass (pick 1 from Tier 1, 2 from Tier 2). Tiers disappear after your first tap of the day.</span></div>
+<div class="ir"><span class="lbl">MDE</span><span class="val">My Disney Experience — Disney's official app for bookings, LL, and dining</span></div>
+</div></div>
+
+<div class="sec"><div class="slbl">Specific rides (shorthand)</div>
+<div class="rl">
+<div class="ir"><span class="lbl">FoP</span><span class="val">Avatar: Flight of Passage (Animal Kingdom · Pandora)</span></div>
+<div class="ir"><span class="lbl">TRON</span><span class="val">TRON Lightcycle / Run (Magic Kingdom · Tomorrowland)</span></div>
+<div class="ir"><span class="lbl">SDMT</span><span class="val">Seven Dwarfs Mine Train (Magic Kingdom · Fantasyland)</span></div>
+<div class="ir"><span class="lbl">BTMRR</span><span class="val">Big Thunder Mountain Railroad (Magic Kingdom · Frontierland)</span></div>
+<div class="ir"><span class="lbl">Guardians</span><span class="val">Guardians of the Galaxy: Cosmic Rewind (EPCOT · World Discovery)</span></div>
+<div class="ir"><span class="lbl">Rise</span><span class="val">Star Wars: Rise of the Resistance (Hollywood Studios · Galaxy's Edge)</span></div>
+</div></div>
+
+<div class="sec"><div class="slbl">Disney programs & services</div>
+<div class="rl">
+<div class="ir"><span class="lbl">Military Salute</span><span class="val">Disney's discounted theme park ticket program for active-duty military and veterans. Must be activated in person at Disney Springs or a park ticket window before first use.</span></div>
+<div class="ir"><span class="lbl">AP</span><span class="val">Annual Pass — Marc & Freha's Disney annual passholder tickets. Valid at all four WDW parks.</span></div>
+<div class="ir"><span class="lbl">Bell Services</span><span class="val">Disney resort luggage transfer service. Moves bags between resorts (e.g., POFQ to Boardwalk Inn) while we're in the parks.</span></div>
+<div class="ir"><span class="lbl">Minnie Van</span><span class="val">Disney's private car service (operated through Lyft). Picks up from inside park gates — avoids the main exit crush. ~$35–50 per trip.</span></div>
+<div class="ir"><span class="lbl">VIP (package)</span><span class="val">Fantasmic! VIP Dining Package — dinner at Sci-Fi Dine-In includes reserved priority seating vouchers for Fantasmic!</span></div>
+<div class="ir"><span class="lbl">Conf#</span><span class="val">Confirmation number — used for dining reservations and the Fireworks Cruise.</span></div>
+</div></div>
+
+<div class="sec"><div class="slbl">Universal parks & programs</div>
+<div class="rl">
+<div class="ir"><span class="lbl">IOA</span><span class="val">Islands of Adventure (Universal Orlando north campus)</span></div>
+<div class="ir"><span class="lbl">USF</span><span class="val">Universal Studios Florida (Universal Orlando north campus)</span></div>
+<div class="ir"><span class="lbl">Epic Universe</span><span class="val">Universal's newest park, opened May 2025. South campus — separate location, ~15 min from Sapphire Falls. No park hopping to/from IOA or USF.</span></div>
+<div class="ir"><span class="lbl">EPA</span><span class="val">Early Park Admission — hotel guests at Loews resorts get in 1 hour before official park open. Used at IOA for VelociCoaster rope drop on May 20.</span></div>
+<div class="ir"><span class="lbl">Express Pass</span><span class="val">Universal's version of a skip-the-line pass. Available for purchase at Sapphire Falls at a hotel discount. Worth pricing for May 20 (IOA + USF day).</span></div>
+<div class="ir"><span class="lbl">Sapphire Falls</span><span class="val">Loews Sapphire Falls Resort — our Universal hotel. North campus, walking distance to IOA and USF.</span></div>
+</div></div>
+
+<div class="sec"><div class="slbl">General trip shorthand</div>
+<div class="rl">
+<div class="ir"><span class="lbl">MCO</span><span class="val">Orlando International Airport</span></div>
+<div class="ir"><span class="lbl">NC</span><span class="val">North Carolina (home — Fayetteville, where Marc & Freha are based)</span></div>
+<div class="ir"><span class="lbl">Gainesville</span><span class="val">Freha's family — Marc & Freha drive here after dropping Rob & Jenna at MCO on May 22</span></div>
+<div class="ir"><span class="lbl">Tesla / Model 3</span><span class="val">Marc's car. Used for parking at Boardwalk + May 22 airport drop. Note: capacity may be tight for 4 people + luggage on the Boardwalk → Sapphire Falls leg.</span></div>
+</div></div>
+
+<div class="sec"><div class="slbl">Third-party tools (Marc's reference)</div>
+<div class="rl">
+<div class="ir"><span class="lbl">Thrill-Data</span><span class="val">Third-party analytics site for Lightning Lane sell-out times, availability maps, and park hours. Used heavily in planning this guide.</span></div>
+<div class="ir"><span class="lbl">Wait Magic</span><span class="val">Thrill-Data subscription service that automatically modifies existing LL bookings to better time windows. Marc has a one-month subscription.</span></div>
+<div class="ir"><span class="lbl">Standby Skipper</span><span class="val">Third-party app that auto-books new rolling LL picks. Not subscribed — manual rolling picks and Wait Magic cover our needs.</span></div>
+<div class="ir"><span class="lbl">planDisney</span><span class="val">Disney's official help forum staffed by cast members. Used to confirm that HS Multi Pass can be pre-selected while physically entering AK first.</span></div>
+</div></div>
 </div>
 
 </main>
