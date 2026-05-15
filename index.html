@@ -223,6 +223,7 @@ body.has-sub .wrap{padding-top:calc(var(--hh) + var(--th) + var(--sh) + 16px)}
   <div class="nav" id="mnav">
     <button class="nb act" data-tab="ov" onclick="go(this,'ov')">Overview</button>
     <button class="nb" data-tab="d0" onclick="go(this,'d0')">Day 0 · May 16</button>
+    <button class="nb" data-tab="bg" onclick="go(this,'bg')">Considerations</button>
     <button class="nb" data-parent="disney" onclick="goParent(this,'disney','mk')">🏰 Disney</button>
     <button class="nb" data-parent="universal" onclick="goParent(this,'universal','un-ioa')">🎢 Universal</button>
     <button class="nb" data-tab="nx" onclick="go(this,'nx')">What's Next</button>
@@ -286,10 +287,11 @@ body.has-sub .wrap{padding-top:calc(var(--hh) + var(--th) + var(--sh) + 16px)}
 <div class="ll-row"><div><div class="ll-name">Pirates of the Caribbean <span class="bdg blue" style="font-size:10px;margin-left:4px">Tier 2 MP</span></div><div class="ll-sub"><span class="gl" data-term="Wait Magic">Wait Magic</span> → earliest AM window · Adventureland · <strong>chain starts here</strong></div></div><div class="ll-time"><div class="ll-window">AM — <span class="gl" data-term="Wait Magic">Wait Magic</span></div></div></div>
 <div class="ll-row"><div><div class="ll-name">Tiana's Bayou Adventure <span class="bdg amb" style="font-size:10px;margin-left:4px">Rolling · after Pirates tap</span></div><div class="ll-sub">Book immediately after Pirates tap</div></div><div class="ll-time"><div class="ll-window" style="color:var(--amb)">Rolling</div></div></div>
 <div class="ll-row"><div><div class="ll-name">Big Thunder Mountain RR <span class="bdg blue" style="font-size:10px;margin-left:4px">MP</span></div><div class="ll-sub"><span class="gl" data-term="Wait Magic">Wait Magic</span> → late morning ~10–11:30 AM · backup: 7:20–8:20 PM if unavailable</div></div><div class="ll-time"><div class="ll-window">~10–11:30 AM</div></div></div>
-<div class="ll-row"><div><div class="ll-name">Haunted Mansion <span class="bdg amb" style="font-size:10px;margin-left:4px">Rolling · after Tiana's tap</span></div><div class="ll-sub">Book late evening window · target 8:30–9:30 PM · Liberty Square</div></div><div class="ll-time"><div class="ll-window" style="color:var(--amb)">Late evening · Rolling</div></div></div>
 <div class="ll-row"><div><div class="ll-name">Seven Dwarfs Mine Train <span class="bdg pur" style="font-size:10px;margin-left:4px">Single Pass</span></div><div class="ll-sub">Fantasyland · all four together · unchanged</div></div><div class="ll-time"><div class="ll-window">2:05–3:05 PM</div></div></div>
 <div class="ll-row"><div><div class="ll-name"><span class="gl" data-term="TRON">TRON</span> Lightcycle / Run <span class="bdg pur" style="font-size:10px;margin-left:4px">Single Pass · FIRST RIDE</span></div><div class="ll-sub">Tomorrowland · second ride possible during fireworks standby · unchanged</div></div><div class="ll-time"><div class="ll-window">3:15–4:15 PM</div></div></div>
 <div class="ll-row"><div><div class="ll-name">Buzz Lightyear Space Ranger Spin <span class="bdg blue" style="font-size:10px;margin-left:4px">MP</span></div><div class="ll-sub">Tomorrowland · replaces pre-booked Haunted Mansion slot</div></div><div class="ll-time"><div class="ll-window">4:35–5:35 PM</div></div></div>
+<div class="ll-row"><div><div class="ll-name">Haunted Mansion <span class="bdg amb" style="font-size:10px;margin-left:4px">Rolling after Tiana's</span></div><div class="ll-sub">Book late evening window · target 8:30–9:30 PM · Liberty Square</div></div><div class="ll-time"><div class="ll-window" style="color:var(--amb)">Late evening · Rolling</div></div></div>
+<div class="ll-row"><div><div class="ll-name">Haunted Mansion <span class="bdg amb" style="font-size:10px;margin-left:4px">Rolling · after Tiana's tap</span></div><div class="ll-sub">Book late evening window · target 8:30–9:30 PM · Liberty Square</div></div><div class="ll-time"><div class="ll-window" style="color:var(--amb)">Late evening · Rolling</div></div></div>
 </div>
 
 <div class="card grn"><div class="ct">May 18 — Animal Kingdom + Hollywood Studios <span class="conf-tag">CONFIRMED</span></div>
@@ -299,16 +301,16 @@ body.has-sub .wrap{padding-top:calc(var(--hh) + var(--th) + var(--sh) + 16px)}
 <div class="ll-row"><div><div class="ll-name">Toy Story Mania!</div><div class="ll-sub">Multi Pass · Toy Story Land, <span class="gl" data-term="HS">HS</span></div></div><div class="ll-time"><div class="ll-window">2:10–3:10 PM</div></div></div>
 <div class="ll-row"><div><div class="ll-name">Slinky Dog Dash</div><div class="ll-sub">Multi Pass · Toy Story Land, <span class="gl" data-term="HS">HS</span></div></div><div class="ll-time"><div class="ll-window">3:10–4:10 PM</div></div></div>
 <div class="ll-row"><div><div class="ll-name">Sci-Fi Dine-In · Fantasmic! Package</div><div class="ll-sub">Dining reservation · Conf# 356076676838</div></div><div class="ll-time"><div class="ll-window">4:25 PM</div></div></div>
-<div class="ll-row"><div><div class="ll-name">Tower of Terror</div><div class="ll-sub">Multi Pass · Sunset Boulevard, <span class="gl" data-term="HS">HS</span></div></div><div class="ll-time"><div class="ll-window">7:15–8:15 PM</div></div></div>
+<div class="ll-row" style="border:1px dashed var(--bem);border-radius:var(--rs);padding:10px 12px;background:var(--abg)"><div><div class="ll-name" style="color:var(--amb)">Tower of Terror</div><div class="ll-sub"><span class="gl" data-term="Rolling pick">Rolling pick</span> · secured after Mickey &amp; Minnie's or Slinky tap · target ~7:15–8:15 PM before Fantasmic!</div></div><div class="ll-time"><div class="ll-window" style="color:var(--amb)">~7:15 PM · Rolling</div></div></div>
 <div class="ll-row" style="border:1px dashed var(--bem);border-radius:var(--rs);padding:10px 12px;margin-top:6px;background:var(--abg)"><div><div class="ll-name" style="color:var(--amb)">Mickey & Minnie's Runaway Railway</div><div class="ll-sub"><span class="gl" data-term="Rolling pick">Rolling pick</span> after Star Tours tap · target early afternoon · Slinky at 3:10 is backup trigger</div></div><div class="ll-time"><div class="ll-window" style="color:var(--amb)">Rolling</div></div></div>
 </div>
 
 <div class="card grn"><div class="ct">May 19 — <span class="gl" data-term="EPCOT">EPCOT</span> <span class="conf-tag">CONFIRMED</span></div>
-<div class="ll-row"><div><div class="ll-name">Test Track <span class="bdg blue" style="font-size:10px;margin-left:4px">Tier 1 Multi Pass</span></div><div class="ll-sub">World Discovery · confirmed booking · replaces Frozen Ever After</div></div><div class="ll-time"><div class="ll-window">4:15–5:15 PM</div></div></div>
 <div class="ll-row"><div><div class="ll-name">Guardians of the Galaxy: Cosmic Rewind</div><div class="ll-sub">Single Pass · World Discovery</div></div><div class="ll-time"><div class="ll-window">11:20 AM–12:20 PM</div></div></div>
 <div class="ll-row"><div><div class="ll-name">Mission: SPACE</div><div class="ll-sub">Multi Pass · World Discovery</div></div><div class="ll-time"><div class="ll-window">1:25–2:25 PM</div></div></div>
 <div class="ll-row"><div><div class="ll-name">Living with the Land</div><div class="ll-sub">Multi Pass · World Nature</div></div><div class="ll-time"><div class="ll-window">2:10–3:10 PM</div></div></div>
 <div class="ll-row"><div><div class="ll-name">Space 220 Lunch</div><div class="ll-sub">Dining reservation · Conf# 356076676256</div></div><div class="ll-time"><div class="ll-window">3:00 PM</div></div></div>
+<div class="ll-row"><div><div class="ll-name">Test Track <span class="bdg blue" style="font-size:10px;margin-left:4px">Tier 1 Multi Pass</span></div><div class="ll-sub">World Discovery · confirmed booking · replaces Frozen Ever After</div></div><div class="ll-time"><div class="ll-window">4:15–5:15 PM</div></div></div>
 <div class="ll-row"><div><div class="ll-name"><span class="gl" data-term="EPCOT">EPCOT</span> Fireworks Cruise</div><div class="ll-sub">Yacht Club Resort dock · Conf# 356076674279</div></div><div class="ll-time"><div class="ll-window">7:45 PM</div></div></div>
 </div></div>
 
@@ -384,6 +386,44 @@ Before we can use our <span class="gl" data-term="Military Salute">Military Salu
 </div></div></div>
 </div>
 
+<!-- ═══ CONSIDERATIONS ═══ -->
+<div id="pnl-bg" class="pnl">
+<div class="park-banner">
+  <img src="images/hero-bg.jpg" class="banner-img" alt="" loading="lazy">
+  <div class="banner-overlay">
+    <div class="banner-title">Considerations</div>
+    <div class="banner-sub">Tipping · Bags · Weather snapshot · Good to know on the road</div>
+  </div>
+</div>
+
+<div class="sec"><div class="slbl">Tipping</div>
+<div class="card pur"><div class="ct">Cash only. No Venmo, Zelle, or CashApp.</div><div class="cb">Resort staff at Disney and Universal don't accept digital payment apps. Keep small bills on hand — $1s and $5s. About $50–60 covers the full trip for bell services and housekeeping.</div></div>
+<div class="rl">
+<div class="ir"><span class="lbl">Bell Services</span><span class="val">$2 per bag — tip the person handling the bags in the moment, not at the desk. Applies at POFQ departure, Boardwalk, and Sapphire Falls when bags change hands.</span></div>
+<div class="ir"><span class="lbl">Housekeeping</span><span class="val">$3–5/night per room — leave cash on the pillow each morning in an envelope labeled "Housekeeping." Worth doing at every resort stop.</span></div>
+</div></div>
+
+<div class="sec"><div class="slbl">What happens if a ride closes during your LL window</div>
+<div class="card blue"><div class="ct">Disney — Lightning Lane Multi Experience pass</div><div class="cb">If a ride closes during your <span class="gl" data-term="LL">LL</span> window due to weather or mechanical issues, the system automatically converts your booking into a <strong>Lightning Lane Multi Experience pass</strong> — a flexible pass valid at many other attractions for the rest of the day. Check <span class="gl" data-term="MDE">MDE</span> for a push notification. Applies to both Single Pass and Multi Pass bookings.</div></div>
+<div class="card blue"><div class="ct">Universal — Express Pass retained</div><div class="cb">If an attraction is down during your Express attempt, your one Express use for that attraction is retained. Cast members will direct you to return when it reopens, or issue a written return pass.</div></div></div>
+
+<div class="sec"><div class="slbl">Bag policy</div>
+<div class="card"><div class="ct">Disney parks — sling bags or small daypacks are ideal</div><div class="cb">All bags go through security screening at every park entrance (bag check + metal detector). Prohibited: glass containers, selfie sticks, loose dry ice, weapons. No hard size maximum but oversized bags slow the line.<br><br>A <strong>bag-free lane</strong> at most parks moves much faster — phone and MagicBand only. Worth using if the main bag line is long and you can stow everything in your pockets briefly.</div></div>
+<div class="card red"><div class="ct">Universal — ALL loose articles off on major coasters</div><div class="cb">For VelociCoaster, Hagrid's, Rip Ride Rockit, and most thrill rides: <strong>everything comes off</strong> — phone, wallet, keys, sunglasses, hat, bags — and goes in a locker before boarding. No exceptions.<br><br><strong>Free short-term lockers</strong> at each ride entrance are timed to your wait + ride duration. With <span class="gl" data-term="Express Pass">Express Pass</span>, your shorter queue time works in your favor.<br><br>Practical: sling bags work great between rides. For back-to-back coasters, develop a system — bag in free locker at first ride, collect, move to next.</div></div></div>
+
+<div class="sec"><div class="slbl">Weather — snapshot as of May 14 · check again night before each day</div>
+<div class="al amb"><strong>Florida afternoon storms are normal, brief, and predictable.</strong><p>Pop-up thunderstorms typically roll in between 2–5 PM and clear within 30–60 minutes. Outdoor coasters pause for nearby lightning; indoor rides stay operational. LL and Express credits are protected when rides go down.</p></div>
+<div class="rl">
+<div class="ir"><span class="lbl">Sat May 16</span><span class="val">20% storms after 2 PM · High 90°F · Fine for Disney Springs</span></div>
+<div class="ir"><span class="lbl">Sun May 17 · MK</span><span class="val">40% storms after 11 AM · Morning LL chain done before storm window · TRON at 3:15 PM is outdoor exposure</span></div>
+<div class="ir"><span class="lbl">Mon May 18 · AK+HS</span><span class="val">30% storms after 2 PM · AK morning unaffected · HS Toy Story/Rise block done before storm window</span></div>
+<div class="ir"><span class="lbl">Tue May 19 · EPCOT</span><span class="val">40% storms after 2 PM · Watch fireworks cruise forecast at 7:45 PM specifically</span></div>
+<div class="ir"><span class="lbl">Wed May 20</span><span class="val">20% storms · Sunny · Best weather day of the stretch</span></div>
+<div class="ir"><span class="lbl">Thu May 21</span><span class="val">30% storms · Sunny · Should clear before Mandalorian at 8:20 PM</span></div>
+</div></div>
+</div>
+
+
 <!-- ═══ MAY 17 MK ═══ -->
 <div id="pnl-mk" class="pnl">
 <div class="park-banner">
@@ -402,7 +442,7 @@ Before we can use our <span class="gl" data-term="Military Salute">Military Salu
 <div class="ir"><span class="lbl">Evening</span><span class="val">Group decides · see <span class="gl" data-term="MK">MK</span> Exit Plan tab</span></div>
 <div class="ir"><span class="lbl">End of night</span><span class="val">Check in to Boardwalk Inn · luggage from <span class="gl" data-term="POFQ">POFQ</span> waiting</span></div>
 </div>
-<div class="al blue"><strong>This timeline is a guide, not a contract.</strong><p>Real Disney days never follow a script. Use this as a reference and adapt freely. The Jungle Cruise <span class="gl" data-term="LL">LL</span> at 9:35 AM is your first fixed anchor — everything before that is flexible early entry time.</p></div></div>
+<div class="al blue"><strong>This timeline is a guide, not a contract.</strong><p>Real Disney days never follow a script. Use this as a reference and adapt freely. Jungle Cruise at Early Entry is standby — <strong>no LL used</strong>. The Pirates <span class="gl" data-term="LL">LL</span> tap (~9 AM) is the first fixed anchor and starts the rolling chain. Everything before that is flexible.</p></div></div>
 
 <div class="sec"><div class="slbl">Confirmed Lightning Lane windows — May 17 (updated)</div>
 <div class="al grn"><strong>Jungle Cruise at early entry (8:30 AM) = standby only. Rolling chain begins at Pirates tap.</strong><p>After Pirates: lock Tiana's immediately. After Tiana's: lock Haunted Mansion for late evening. <span class="gl" data-term="Wait Magic">Wait Magic</span> is optimizing Pirates and BTM time windows. Monitor both <span class="gl" data-term="Thrill-Data">Thrill-Data</span> and <span class="gl" data-term="MDE">MDE</span>.</p></div>
@@ -410,7 +450,6 @@ Before we can use our <span class="gl" data-term="Military Salute">Military Salu
 <div class="ll-row"><div><div class="ll-name">Pirates of the Caribbean <span class="bdg blue" style="font-size:10px;margin-left:4px">Tier 2 <span class="gl" data-term="LLMP">MP</span></span></div><div class="ll-sub"><span class="gl" data-term="Wait Magic">Wait Magic</span> → earliest AM window · Adventureland · <strong>rolling chain starts here</strong></div></div><div class="ll-time"><div class="ll-window">AM — <span class="gl" data-term="Wait Magic">Wait Magic</span></div></div></div>
 <div class="ll-row"><div><div class="ll-name">Tiana's Bayou Adventure <span class="bdg amb" style="font-size:10px;margin-left:4px">Rolling after Pirates</span></div><div class="ll-sub">Book immediately after Pirates tap · Frontierland</div></div><div class="ll-time"><div class="ll-window" style="color:var(--amb)">Rolling</div></div></div>
 <div class="ll-row"><div><div class="ll-name">Big Thunder Mountain <span class="gl" data-term="BTMRR">RR</span> <span class="bdg blue" style="font-size:10px;margin-left:4px">MP</span></div><div class="ll-sub"><span class="gl" data-term="Wait Magic">Wait Magic</span> → late morning ~10–11:30 AM · backup: 7:20–8:20 PM if unavailable</div></div><div class="ll-time"><div class="ll-window">~10–11:30 AM</div></div></div>
-<div class="ll-row"><div><div class="ll-name">Haunted Mansion <span class="bdg amb" style="font-size:10px;margin-left:4px">Rolling after Tiana's</span></div><div class="ll-sub">Book late evening window · target 8:30–9:30 PM · Liberty Square</div></div><div class="ll-time"><div class="ll-window" style="color:var(--amb)">Late evening · Rolling</div></div></div>
 <div class="ll-row"><div><div class="ll-name">Seven Dwarfs Mine Train <span class="bdg pur" style="font-size:10px;margin-left:4px"><span class="gl" data-term="LLSP">Single Pass</span></span></div><div class="ll-sub">Fantasyland · all four together · unchanged</div></div><div class="ll-time"><div class="ll-window">2:05–3:05 PM</div></div></div>
 <div class="ll-row"><div><div class="ll-name"><span class="gl" data-term="TRON">TRON</span> Lightcycle / Run <span class="bdg pur" style="font-size:10px;margin-left:4px">Single Pass · FIRST RIDE</span></div><div class="ll-sub">Tomorrowland · second ride possible during fireworks standby · unchanged</div></div><div class="ll-time"><div class="ll-window">3:15–4:15 PM</div></div></div>
 <div class="ll-row"><div><div class="ll-name">Buzz Lightyear Space Ranger Spin <span class="bdg blue" style="font-size:10px;margin-left:4px">MP</span></div><div class="ll-sub">Tomorrowland · replaces pre-booked Haunted Mansion slot</div></div><div class="ll-time"><div class="ll-window">4:35–5:35 PM</div></div></div>
@@ -538,7 +577,7 @@ Before we can use our <span class="gl" data-term="Military Salute">Military Salu
 <div class="tli"><div class="tll"><span class="tlt">8:45</span><div class="dot amb"></div></div><div class="tlc"><div class="ttl">Optional — Kali River Rapids</div><div class="tds">Right next to Everest in Asia. Standby ~20–30 min. <strong>Lowest priority of the <span class="gl" data-term="AK">AK</span> morning.</strong> Group decision only if: everyone wants to get wet, it's warm enough to dry before dinner, and the group has energy. Skip without hesitation if any doubt — a 4:25 PM dinner and full <span class="gl" data-term="HS">HS</span> evening await.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">9:20</span><div class="dot pur"></div></div><div class="tlc"><div class="ttl">Walk to Pandora · Flight of Passage Single Pass</div><div class="tds">~8–10 min walk from Asia. <span class="gl" data-term="FoP">FoP</span> window: <strong>9:30–10:30 AM</strong>. Tap in within ±15 min of the window start. <span class="gl" data-term="LL">LL</span> queue typically 15–25 min. Best ride at Walt Disney World, possibly anywhere. First time for Freha, Rob, and Jenna. Budget 25 min total. Give the group a moment after.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">10:00</span><div class="dot blue"></div></div><div class="tlc"><div class="ttl">Na'vi River Journey · standby (Pandora)</div><div class="tds">You're already in Pandora — stay here. Standby at 10 AM is ~25–35 min. Beautiful bioluminescent boat ride. Do it while you're here.</div></div></div>
-<div class="tli"><div class="tll"><span class="tlt">10:45</span><div class="dot tel"></div></div><div class="tlc"><div class="ttl">Satu'li Canteen · food stop</div><div class="tds">Right there in Pandora. Excellent food, filling portions. Last real meal before a 4:25 PM dinner — eat something substantial. Confirm <span class="gl" data-term="HS">HS</span> <span class="gl" data-term="LL">LL</span> windows in <span class="gl" data-term="MDE">MDE</span> while eating: Rise 1:10 PM, Toy Story Mania 2:10 PM, Slinky 3:10 PM, Tower 7:15 PM — all confirmed.</div></div></div>
+<div class="tli"><div class="tll"><span class="tlt">10:45</span><div class="dot tel"></div></div><div class="tlc"><div class="ttl">Satu'li Canteen · food stop</div><div class="tds">Right there in Pandora. Excellent food, filling portions. Last real meal before a 4:25 PM dinner — eat something substantial. Confirm <span class="gl" data-term="HS">HS</span> <span class="gl" data-term="LL">LL</span> windows in <span class="gl" data-term="MDE">MDE</span> while eating: Star Tours 12:10 PM, Rise 1:10 PM, Toy Story Mania 2:10 PM, Slinky 3:10 PM — all confirmed pre-booked. Tower of Terror will be secured as a rolling pick targeting ~7:15 PM.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">11:30</span><div class="dot red"></div></div><div class="tlc"><div class="ttl">Depart <span class="gl" data-term="AK">AK</span> · rideshare to Hollywood Studios</div><div class="tds">~$12–15, 10–15 min. Do not take Disney bus — 30–45 min is too slow given the <span class="gl" data-term="HS">HS</span> schedule. Arriving at <span class="gl" data-term="HS">HS</span> by 12:30 PM gives nearly 45 min before Rise at 1:10 PM.</div></div></div>
 </div></div>
 
@@ -558,7 +597,7 @@ Before we can use our <span class="gl" data-term="Military Salute">Military Salu
 <div class="tli"><div class="tll"><span class="tlt">4:25</span><div class="dot tel"></div></div><div class="tlc"><div class="ttl">Sci-Fi Dine-In Theater · Fantasmic! VIP package</div><div class="tds">Retro drive-in car booths, B-movie clips, classic comfort food. <strong>VIP Fantasmic! seating vouchers provided at the end of the meal.</strong> Do not lose these. Budget 60–80 min.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">6:00</span><div class="dot amb"></div></div><div class="tlc"><div class="ttl">Indiana Jones Epic Stunt Spectacular — afternoon show</div><div class="tds">If not done on arrival, check the afternoon show time. Runs ~30 min. First-timer must-see for Rob and Jenna. Practical stunts, real fire, great audience participation. Walk-up availability is consistent.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">6:30</span><div class="dot blue"></div></div><div class="tlc"><div class="ttl">Mickey &amp; Minnie's Runaway Railway · rolling <span class="gl" data-term="LL">LL</span></div><div class="tds">Secured rolling after Star Tours tap (Slinky at 3:10 PM as backup trigger). Don't skip the outdoor pre-show — it sets up the entire experience.</div></div></div>
-<div class="tli"><div class="tll"><span class="tlt">7:15</span><div class="dot blue"></div></div><div class="tlc"><div class="ttl">Tower of Terror · Multi Pass <span class="gl" data-term="LL">LL</span></div><div class="tds">Pre-booked 7:15–8:15 PM. Sunset Boulevard at night — the atmosphere is peak. Hollywood Tower Hotel glowing in the dark. The right way to experience this ride.</div></div></div>
+<div class="tli"><div class="tll"><span class="tlt">~7:15</span><div class="dot amb"></div></div><div class="tlc"><div class="ttl">Tower of Terror · <span class="gl" data-term="Rolling pick">Rolling pick</span> — target evening window</div><div class="tds">Secured as a rolling pick after the Mickey &amp; Minnie's or Slinky tap. Target ~7:15–8:15 PM — the window before Fantasmic! is ideal. Sunset Boulevard at night — Hollywood Tower Hotel glowing in the dark. The right way to experience this ride.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">8:30</span><div class="dot pur"></div></div><div class="tlc"><div class="ttl">Fantasmic! Hollywood Hills Amphitheater</div><div class="tds">Sunset Boulevard entrance. Look for <strong>Fantasmic! Dining Package</strong> signage — separate from standby. Present VIP vouchers. Arrive early for best seat selection. <strong>Avoid rows 1–4</strong> unless getting soaked is the plan.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">9:00</span><div class="dot tel"></div></div><div class="tlc"><div class="ttl">Fantasmic! · 25 minutes</div><div class="tds">Sorcerer Mickey, fire-breathing dragon, 40-foot water projections, live performers. One of Disney's best nighttime shows. First time for Freha.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">Post-show</span><div class="dot amb"></div></div><div class="tlc"><div class="ttl">Return to Boardwalk Inn</div><div class="tds">Boat from <span class="gl" data-term="HS">HS</span> dock (runs post-close for resort guests) or scenic 15-min walk along the BoardWalk. Bags are already at Boardwalk from last night.</div></div></div>
@@ -579,7 +618,7 @@ Before we can use our <span class="gl" data-term="Military Salute">Military Salu
 <div class="ir"><span class="lbl">Entry</span><span class="val">International Gateway (Boardwalk side) · Early Entry 8:30 AM</span></div>
 <div class="ir"><span class="lbl">Remy's</span><span class="val">Rope drop standby immediately (No-fail)</span></div>
 <div class="ir"><span class="lbl">WS flow</span><span class="val">Counter-clockwise: France → UK → Canada → America → Norway → Mexico</span></div>
-<div class="ir"><span class="lbl">Mission: <span class="gl" data-term="SPACE">SPACE</span></span><span class="val">Booked at 1:25 PM · Test Track now also confirmed 4:15–5:15 PM</span></div>
+<div class="ir"><span class="lbl">Mission: SPACE</span><span class="val">Booked at 1:25 PM · Test Track now also confirmed 4:15–5:15 PM</span></div>
 <div class="ir"><span class="lbl">Space 220</span><span class="val">3:00 PM · Conf# 356076676256 · hard anchor</span></div>
 <div class="ir"><span class="lbl">Fireworks Cruise</span><span class="val">Leave IG by 7:15 PM · Yacht Club dock at 7:45 PM · Conf# 356076674279</span></div>
 <div class="ir"><span class="lbl">Soarin'</span><span class="val"><span class="bdg red">Confirmed N/A on <span class="gl" data-term="Thrill-Data">Thrill-Data</span></span> · ask cast member about military AP preview</span></div>
@@ -750,59 +789,59 @@ Rob and Jenna have a 4-day park hopper — May 17, 18, and 19 use 3 days. <stron
 <div class="sec"><div class="slbl">Disney parks & locations</div>
 <div class="rl">
 <div class="ir"><span class="lbl">WDW</span><span class="val">Walt Disney World Resort (Orlando)</span></div>
-<div class="ir"><span class="lbl"><span class="gl" data-term="MK">MK</span></span><span class="val">Magic Kingdom Park</span></div>
-<div class="ir"><span class="lbl"><span class="gl" data-term="AK">AK</span></span><span class="val">Disney's Animal Kingdom Theme Park</span></div>
-<div class="ir"><span class="lbl"><span class="gl" data-term="HS">HS</span></span><span class="val">Disney's Hollywood Studios</span></div>
-<div class="ir"><span class="lbl"><span class="gl" data-term="EPCOT">EPCOT</span></span><span class="val">Experimental Prototype Community of Tomorrow (no longer a true acronym — it's just <span class="gl" data-term="EPCOT">EPCOT</span>)</span></div>
+<div class="ir"><span class="lbl">MK</span><span class="val">Magic Kingdom Park</span></div>
+<div class="ir"><span class="lbl">AK</span><span class="val">Disney's Animal Kingdom Theme Park</span></div>
+<div class="ir"><span class="lbl">HS</span><span class="val">Disney's Hollywood Studios</span></div>
+<div class="ir"><span class="lbl">EPCOT</span><span class="val">Experimental Prototype Community of Tomorrow (no longer a true acronym — it's just <span class="gl" data-term="EPCOT">EPCOT</span>)</span></div>
 <div class="ir"><span class="lbl">WS</span><span class="val">World Showcase (the international pavilions ring at <span class="gl" data-term="EPCOT">EPCOT</span>)</span></div>
 <div class="ir"><span class="lbl">IG</span><span class="val">International Gateway (<span class="gl" data-term="EPCOT">EPCOT</span>'s secondary entrance near Boardwalk)</span></div>
-<div class="ir"><span class="lbl"><span class="gl" data-term="POFQ">POFQ</span></span><span class="val">Port Orleans French Quarter (our first Disney resort)</span></div>
+<div class="ir"><span class="lbl">POFQ</span><span class="val">Port Orleans French Quarter (our first Disney resort)</span></div>
 </div></div>
 
 <div class="sec"><div class="slbl">Lightning Lane</div>
 <div class="rl">
-<div class="ir"><span class="lbl"><span class="gl" data-term="LL">LL</span></span><span class="val">Lightning Lane — Disney's skip-the-standby-line system</span></div>
-<div class="ir"><span class="lbl"><span class="gl" data-term="LLMP">LLMP</span> / MP</span><span class="val">Lightning Lane Multi Pass — up to 3 pre-selected ride windows + rolling picks after each tap</span></div>
-<div class="ir"><span class="lbl"><span class="gl" data-term="LLSP">LLSP</span> / SP</span><span class="val">Lightning Lane Single Pass — individual purchase for one specific headliner attraction</span></div>
-<div class="ir"><span class="lbl"><span class="gl" data-term="Rolling pick">Rolling pick</span></span><span class="val">A new <span class="gl" data-term="LL">LL</span> selection that unlocks the moment you tap/scan into a Multi Pass <span class="gl" data-term="LL">LL</span>. Only Multi Pass taps trigger this — Single Pass taps do not.</span></div>
+<div class="ir"><span class="lbl">LL</span><span class="val">Lightning Lane — Disney's skip-the-standby-line system</span></div>
+<div class="ir"><span class="lbl">LLMP / MP</span><span class="val">Lightning Lane Multi Pass — up to 3 pre-selected ride windows + rolling picks after each tap</span></div>
+<div class="ir"><span class="lbl">LLSP / SP</span><span class="val">Lightning Lane Single Pass — individual purchase for one specific headliner attraction</span></div>
+<div class="ir"><span class="lbl">Rolling pick</span><span class="val">A new <span class="gl" data-term="LL">LL</span> selection that unlocks the moment you tap/scan into a Multi Pass <span class="gl" data-term="LL">LL</span>. Only Multi Pass taps trigger this — Single Pass taps do not.</span></div>
 <div class="ir"><span class="lbl">Grace period</span><span class="val">Officially ±15 min before/after your <span class="gl" data-term="LL">LL</span> arrival window. Arrive within your window.</span></div>
 <div class="ir"><span class="lbl">Tier 1 / Tier 2</span><span class="val">Pre-booking groupings for Multi Pass (pick 1 from Tier 1, 2 from Tier 2). Tiers disappear after your first tap of the day.</span></div>
-<div class="ir"><span class="lbl"><span class="gl" data-term="MDE">MDE</span></span><span class="val">My Disney Experience — Disney's official app for bookings, <span class="gl" data-term="LL">LL</span>, and dining</span></div>
+<div class="ir"><span class="lbl">MDE</span><span class="val">My Disney Experience — Disney's official app for bookings, <span class="gl" data-term="LL">LL</span>, and dining</span></div>
 </div></div>
 
 <div class="sec"><div class="slbl">Specific rides (shorthand)</div>
 <div class="rl">
-<div class="ir"><span class="lbl"><span class="gl" data-term="FoP">FoP</span></span><span class="val">Avatar: Flight of Passage (Animal Kingdom · Pandora)</span></div>
-<div class="ir"><span class="lbl"><span class="gl" data-term="TRON">TRON</span></span><span class="val"><span class="gl" data-term="TRON">TRON</span> Lightcycle / Run (Magic Kingdom · Tomorrowland)</span></div>
-<div class="ir"><span class="lbl"><span class="gl" data-term="SDMT">SDMT</span></span><span class="val">Seven Dwarfs Mine Train (Magic Kingdom · Fantasyland)</span></div>
-<div class="ir"><span class="lbl"><span class="gl" data-term="BTMRR">BTMRR</span></span><span class="val">Big Thunder Mountain Railroad (Magic Kingdom · Frontierland)</span></div>
+<div class="ir"><span class="lbl">FoP</span><span class="val">Avatar: Flight of Passage (Animal Kingdom · Pandora)</span></div>
+<div class="ir"><span class="lbl">TRON</span><span class="val"><span class="gl" data-term="TRON">TRON</span> Lightcycle / Run (Magic Kingdom · Tomorrowland)</span></div>
+<div class="ir"><span class="lbl">SDMT</span><span class="val">Seven Dwarfs Mine Train (Magic Kingdom · Fantasyland)</span></div>
+<div class="ir"><span class="lbl">BTMRR</span><span class="val">Big Thunder Mountain Railroad (Magic Kingdom · Frontierland)</span></div>
 <div class="ir"><span class="lbl">Guardians</span><span class="val">Guardians of the Galaxy: Cosmic Rewind (<span class="gl" data-term="EPCOT">EPCOT</span> · World Discovery)</span></div>
 <div class="ir"><span class="lbl">Rise</span><span class="val">Star Wars: Rise of the Resistance (Hollywood Studios · Galaxy's Edge)</span></div>
 </div></div>
 
 <div class="sec"><div class="slbl">Disney programs & services</div>
 <div class="rl">
-<div class="ir"><span class="lbl"><span class="gl" data-term="Military Salute">Military Salute</span></span><span class="val">Disney's discounted theme park ticket program for active-duty military and veterans. Must be activated in person at Disney Springs or a park ticket window before first use.</span></div>
+<div class="ir"><span class="lbl">Military Salute</span><span class="val">Disney's discounted theme park ticket program for active-duty military and veterans. Must be activated in person at Disney Springs or a park ticket window before first use.</span></div>
 <div class="ir"><span class="lbl">AP</span><span class="val">Annual Pass — Marc & Freha's Disney annual passholder tickets. Valid at all four WDW parks.</span></div>
-<div class="ir"><span class="lbl"><span class="gl" data-term="Bell Services">Bell Services</span></span><span class="val">Disney resort luggage transfer service. Moves bags between resorts (e.g., <span class="gl" data-term="POFQ">POFQ</span> to Boardwalk Inn) while we're in the parks.</span></div>
-<div class="ir"><span class="lbl"><span class="gl" data-term="Minnie Van">Minnie Van</span></span><span class="val">Disney's private car service (operated through Lyft). Picks up from inside park gates — avoids the main exit crush. ~$35–50 per trip.</span></div>
+<div class="ir"><span class="lbl">Bell Services</span><span class="val">Disney resort luggage transfer service. Moves bags between resorts (e.g., <span class="gl" data-term="POFQ">POFQ</span> to Boardwalk Inn) while we're in the parks.</span></div>
+<div class="ir"><span class="lbl">Minnie Van</span><span class="val">Disney's private car service (operated through Lyft). Picks up from inside park gates — avoids the main exit crush. ~$35–50 per trip.</span></div>
 <div class="ir"><span class="lbl">VIP (package)</span><span class="val">Fantasmic! VIP Dining Package — dinner at Sci-Fi Dine-In includes reserved priority seating vouchers for Fantasmic!</span></div>
 <div class="ir"><span class="lbl">Conf#</span><span class="val">Confirmation number — used for dining reservations and the Fireworks Cruise.</span></div>
 </div></div>
 
 <div class="sec"><div class="slbl">Universal parks & programs</div>
 <div class="rl">
-<div class="ir"><span class="lbl"><span class="gl" data-term="IOA">IOA</span></span><span class="val">Islands of Adventure (Universal Orlando north campus)</span></div>
-<div class="ir"><span class="lbl"><span class="gl" data-term="USF">USF</span></span><span class="val">Universal Studios Florida (Universal Orlando north campus)</span></div>
+<div class="ir"><span class="lbl">IOA</span><span class="val">Islands of Adventure (Universal Orlando north campus)</span></div>
+<div class="ir"><span class="lbl">USF</span><span class="val">Universal Studios Florida (Universal Orlando north campus)</span></div>
 <div class="ir"><span class="lbl">Epic Universe</span><span class="val">Universal's newest park, opened May 2025. South campus — separate location, ~15 min from Sapphire Falls. No park hopping to/from <span class="gl" data-term="IOA">IOA</span> or <span class="gl" data-term="USF">USF</span>.</span></div>
-<div class="ir"><span class="lbl"><span class="gl" data-term="EPA">EPA</span></span><span class="val">Early Park Admission — hotel guests at Loews resorts get in 1 hour before official park open. Used at <span class="gl" data-term="IOA">IOA</span> for VelociCoaster rope drop on May 20.</span></div>
-<div class="ir"><span class="lbl"><span class="gl" data-term="Express Pass">Express Pass</span></span><span class="val">Universal's version of a skip-the-line pass. Available for purchase at Sapphire Falls at a hotel discount. Worth pricing for May 20 (<span class="gl" data-term="IOA">IOA</span> + <span class="gl" data-term="USF">USF</span> day).</span></div>
+<div class="ir"><span class="lbl">EPA</span><span class="val">Early Park Admission — hotel guests at Loews resorts get in 1 hour before official park open. Used at <span class="gl" data-term="IOA">IOA</span> for VelociCoaster rope drop on May 20.</span></div>
+<div class="ir"><span class="lbl">Express Pass</span><span class="val">Universal's version of a skip-the-line pass. Available for purchase at Sapphire Falls at a hotel discount. Worth pricing for May 20 (<span class="gl" data-term="IOA">IOA</span> + <span class="gl" data-term="USF">USF</span> day).</span></div>
 <div class="ir"><span class="lbl">Sapphire Falls</span><span class="val">Loews Sapphire Falls Resort — our Universal hotel. North campus, walking distance to <span class="gl" data-term="IOA">IOA</span> and <span class="gl" data-term="USF">USF</span>.</span></div>
 </div></div>
 
 <div class="sec"><div class="slbl">General trip shorthand</div>
 <div class="rl">
-<div class="ir"><span class="lbl"><span class="gl" data-term="MCO">MCO</span></span><span class="val">Orlando International Airport</span></div>
+<div class="ir"><span class="lbl">MCO</span><span class="val">Orlando International Airport</span></div>
 <div class="ir"><span class="lbl">NC</span><span class="val">North Carolina (home — Fayetteville, where Marc & Freha are based)</span></div>
 <div class="ir"><span class="lbl">Gainesville</span><span class="val">Freha's family — Marc & Freha drive here after dropping Rob & Jenna at <span class="gl" data-term="MCO">MCO</span> on May 22</span></div>
 <div class="ir"><span class="lbl">Tesla / Model 3</span><span class="val">Marc's car. Used for parking at Boardwalk + May 22 airport drop. Note: capacity may be tight for 4 people + luggage on the Boardwalk → Sapphire Falls leg.</span></div>
@@ -810,8 +849,8 @@ Rob and Jenna have a 4-day park hopper — May 17, 18, and 19 use 3 days. <stron
 
 <div class="sec"><div class="slbl">Third-party tools (Marc's reference)</div>
 <div class="rl">
-<div class="ir"><span class="lbl"><span class="gl" data-term="Thrill-Data">Thrill-Data</span></span><span class="val">Third-party analytics site for Lightning Lane sell-out times, availability maps, and park hours. Used heavily in planning this guide.</span></div>
-<div class="ir"><span class="lbl"><span class="gl" data-term="Wait Magic">Wait Magic</span></span><span class="val">Tool (via <span class="gl" data-term="Thrill-Data">Thrill-Data</span>) that automatically modifies existing <span class="gl" data-term="LL">LL</span> bookings to better time windows. Used to optimize our Pirates of the Caribbean and Big Thunder Mountain windows.</span></div>
+<div class="ir"><span class="lbl">Thrill-Data</span><span class="val">Third-party analytics site for Lightning Lane sell-out times, availability maps, and park hours. Used heavily in planning this guide.</span></div>
+<div class="ir"><span class="lbl">Wait Magic</span><span class="val">Tool (via <span class="gl" data-term="Thrill-Data">Thrill-Data</span>) that automatically modifies existing <span class="gl" data-term="LL">LL</span> bookings to better time windows. Used to optimize our Pirates of the Caribbean and Big Thunder Mountain windows.</span></div>
 <div class="ir"><span class="lbl">planDisney</span><span class="val">Disney's official help forum staffed by cast members. Used to confirm that <span class="gl" data-term="HS">HS</span> Multi Pass can be pre-selected while physically entering <span class="gl" data-term="AK">AK</span> first.</span></div>
 </div></div>
 </div>
