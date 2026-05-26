@@ -212,6 +212,78 @@ body.has-sub .wrap{padding-top:calc(var(--hh) + var(--th) + var(--sh) + 16px)}
 /* Cross-reference nav links */
 .xref{display:inline-flex;align-items:center;gap:2px;color:var(--blue);border-bottom:1px solid var(--blue);cursor:pointer;font-size:inherit;line-height:1.3;-webkit-tap-highlight-color:transparent;white-space:nowrap}
 .xref::after{content:'↗';font-size:.8em;margin-left:1px}
+
+/* ── TRIP COMPLETE / ARCHIVE ── */
+.trip-done-bar{display:flex;align-items:center;justify-content:space-between;background:var(--gbg);border:1px solid var(--gb);border-radius:var(--rs);padding:10px 16px;margin-bottom:18px}
+.trip-done-lbl{font-size:13px;font-weight:600;color:var(--grn)}
+.trip-done-meta{font-size:11px;color:var(--t2)}
+
+/* ── OUTCOME CHIPS ── */
+.outcome-summary{background:var(--surf);border:1px solid var(--bem);border-radius:var(--r);padding:14px;margin-bottom:16px}
+.outcome-summary-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);margin-bottom:8px}
+.outcome-summary-body{font-size:13px;color:var(--t2);line-height:1.6;margin-bottom:12px}
+.outcome-chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;padding:4px 10px;border-radius:var(--rp);font-size:11px;font-weight:500;letter-spacing:.02em}
+.chip.done{background:var(--gbg);color:var(--grn);border:1px solid var(--gb)}
+.chip.modified{background:var(--abg);color:var(--amb);border:1px solid var(--ab)}
+.chip.skipped{background:var(--rbg);color:var(--red);border:1px solid var(--rb)}
+.chip.highlight{background:var(--pbg);color:var(--pur);border:1px solid var(--pb)}
+.chip.unplanned{background:var(--tbg);color:var(--tel);border:1px solid var(--teb)}
+
+/* ── TRIP REPORT ── */
+.tr-day{margin-bottom:32px;padding-bottom:28px;border-bottom:1px solid var(--border)}
+.tr-day:last-child{border-bottom:none;margin-bottom:0}
+.tr-day-hdr{display:flex;align-items:baseline;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.tr-day-num{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--t3)}
+.tr-day-date{font-size:10px;color:var(--t3)}
+.tr-day-park{font-family:'DM Serif Display',serif;font-size:17px;color:var(--blue);font-style:italic;margin-left:auto}
+.tr-headline{font-size:15px;font-weight:600;color:var(--txt);line-height:1.4;margin-bottom:10px}
+.tr-narrative{font-size:13px;color:var(--t2);line-height:1.7;margin-bottom:14px}
+.tr-narrative p{margin-bottom:10px}
+.tr-narrative p:last-child{margin-bottom:0}
+.tr-km-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);margin-bottom:8px}
+.tr-km{list-style:none;display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
+.tr-km li{font-size:13px;color:var(--t2);padding-left:16px;position:relative;line-height:1.5}
+.tr-km li::before{content:'–';position:absolute;left:0;color:var(--t3)}
+.tr-km li strong{color:var(--txt);font-weight:500}
+.tr-photos{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tr-photo{flex:1;min-width:110px;max-width:180px}
+.tr-photo img{width:100%;border-radius:var(--rs);object-fit:cover;aspect-ratio:4/3;background:var(--surf);display:block}
+.tr-photo-cap{font-size:10px;color:var(--t3);margin-top:4px;text-align:center}
+
+/* ── DUCKY STRIP ── */
+.duck-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);margin-bottom:8px}
+.duck-strip{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none;margin-bottom:16px}
+.duck-strip::-webkit-scrollbar{display:none}
+.duck-card{flex-shrink:0;width:88px;text-align:center}
+.duck-card img{width:88px;height:88px;object-fit:cover;border-radius:var(--rs);background:var(--surf);display:block}
+.duck-card-lbl{font-size:10px;color:var(--t3);margin-top:4px;font-weight:600}
+
+/* ── DRIVE BUTTON ── */
+.drive-btn{display:inline-flex;align-items:center;gap:8px;background:var(--bbg);border:1px solid var(--bb);border-radius:var(--rp);padding:10px 18px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--blue);text-decoration:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+
+@media(min-width:600px){.tr-photo{max-width:220px}.duck-card{width:108px}.duck-card img{width:108px;height:108px}}
+
+/* ── LIGHTBOX ── */
+.tr-photo img,.duck-card img{cursor:pointer}
+.lb-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.93);align-items:center;justify-content:center;padding:16px}
+.lb-overlay.vis{display:flex}
+.lb-img{max-width:92vw;max-height:88vh;object-fit:contain;border-radius:var(--rs);display:block}
+.lb-close{position:fixed;top:16px;right:18px;color:rgba(255,255,255,.7);font-size:22px;cursor:pointer;line-height:1;background:none;border:none;font-family:'DM Sans',sans-serif;padding:4px 8px;-webkit-tap-highlight-color:transparent}
+.lb-close:hover{color:#fff}
+
+/* ── BEFORE / AFTER COMPARISON ── */
+.lb-overlay.ba-mode .lb-img{display:none}
+#ba-container{display:none;width:92vw;max-height:88vh;overflow-y:auto}
+.lb-overlay.ba-mode #ba-container{display:block}
+.ba-compare{display:flex;flex-direction:column;gap:10px;align-items:center}
+.ba-panel{display:flex;flex-direction:column;align-items:center;gap:6px;width:100%}
+.ba-panel img{width:100%;max-height:38vh;object-fit:contain;border-radius:var(--rs);display:block}
+.ba-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.6)}
+@media(min-width:600px){
+  .ba-compare{flex-direction:row;align-items:flex-start}
+  .ba-panel img{max-height:72vh}
+}
 </style>
 </head>
 <body>
@@ -221,19 +293,20 @@ body.has-sub .wrap{padding-top:calc(var(--hh) + var(--th) + var(--sh) + 16px)}
 </header>
 <nav class="nav-wrap">
   <div class="nav" id="mnav">
-    <button class="nb act" data-tab="ov" onclick="go(this,'ov')">Overview</button>
-    <button class="nb" data-tab="d0" onclick="go(this,'d0')">Day 0 · May 16</button>
-    <button class="nb" data-tab="bg" onclick="go(this,'bg')">Considerations</button>
-    <button class="nb" data-parent="disney" onclick="goParent(this,'disney','mk')">🏰 Disney</button>
+    <button class="nb" data-tab="ov" onclick="go(this,'ov')">Overview</button>
+    <button class="nb act" data-tab="tr" onclick="go(this,'tr')">Trip Report</button>
+    <button class="nb" data-tab="bg" onclick="go(this,'bg')">Planning</button>
+    <button class="nb" data-parent="disney" onclick="goParent(this,'disney','d0')">🏰 Disney</button>
     <button class="nb" data-parent="universal" onclick="goParent(this,'universal','un-ioa')">🎢 Universal</button>
-    <button class="nb" data-tab="nx" onclick="go(this,'nx')">What's Next</button>
+    <button class="nb" data-tab="ll" onclick="go(this,'ll')">Lessons Learned</button>
     <button class="nb" data-tab="gl" onclick="go(this,'gl')">Glossary</button>
   </div>
   <div class="sub-nav" id="sub-disney">
+    <button class="snb" data-sub="d0" onclick="goSub(this,'d0')">Day 0 · DS</button>
     <button class="snb" data-sub="mk" onclick="goSub(this,'mk')">May 17 · <span class="gl" data-term="MK">MK</span></button>
-    <button class="snb" data-sub="ex" onclick="goSub(this,'ex')">Exit Plan</button>
     <button class="snb" data-sub="ak" onclick="goSub(this,'ak')">May 18 · <span class="gl" data-term="AK">AK</span>→<span class="gl" data-term="HS">HS</span></button>
     <button class="snb" data-sub="ep" onclick="goSub(this,'ep')">May 19 · <span class="gl" data-term="EPCOT">EPCOT</span></button>
+    <button class="snb" data-sub="d6" onclick="goSub(this,'d6')">May 22 · <span class="gl" data-term="MK">MK</span></button>
   </div>
   <div class="sub-nav" id="sub-universal">
     <button class="snb" data-sub="un-ioa" onclick="goSub(this,'un-ioa')"><span class="gl" data-term="IOA">IOA</span> + <span class="gl" data-term="USF">USF</span></button>
@@ -242,20 +315,232 @@ body.has-sub .wrap{padding-top:calc(var(--hh) + var(--th) + var(--sh) + 16px)}
 </nav>
 <main class="wrap">
 
+<!-- ═══ TRIP REPORT ═══ -->
+<div id="pnl-tr" class="pnl act">
+<div class="park-banner">
+  <img src="images/wrapup-banner.jpg" class="banner-img" alt="" loading="lazy">
+  <div class="banner-overlay">
+    <div class="banner-title">Orlando 2026 — Trip Report</div>
+    <div class="banner-sub">May 16–22 · Marc · Freha · Rob · Jenna · and Ducky</div>
+  </div>
+</div>
+
+<div class="sec"><div class="slbl">The group</div>
+<div class="rl">
+<div class="ir"><span class="lbl">Marc &amp; Freha</span><span class="val">Military Salute Annual Pass holders · drove from Gainesville</span></div>
+<div class="ir"><span class="lbl">Rob &amp; Jenna</span><span class="val">4-day Park Hopper · flew from Las Vegas via Southwest WN2648</span></div>
+<div class="ir"><span class="lbl">Resorts</span><span class="val">Port Orleans French Quarter (May 16–17) · Boardwalk Inn (May 17–19) · Loews Sapphire Falls (May 19–22)</span></div>
+<div class="ir"><span class="lbl">Express Pass</span><span class="val">2-Day Standard · all four · IOA, USF, and Epic Universe</span></div>
+<div class="ir"><span class="lbl">Steps</span><span class="val">20,000–30,000 per day · every single day</span></div>
+</div></div>
+
+<div class="sec"><div class="slbl">Ducky — the trip mascot</div>
+<div class="duck-lbl">A yellow rubber duck photographed at every park — debuted in Freha's drink at Morimoto Asia on Day 0.</div>
+<div class="duck-strip">
+<div class="duck-card"><img src="images/trip/day0-duck.jpg" alt="Ducky Day 0" onerror="this.style.opacity='.3'"><div class="duck-card-lbl">Day 0 · DS</div></div>
+<div class="duck-card"><img src="images/trip/duck-day6.jpg" alt="Ducky Day 1" onerror="this.style.opacity='.3'"><div class="duck-card-lbl">Day 1 · MK *</div></div>
+<div class="duck-card"><img src="images/trip/duck-day2.jpg" alt="Ducky Day 2" onerror="this.style.opacity='.3'"><div class="duck-card-lbl">Day 2 · AK+HS</div></div>
+<div class="duck-card"><img src="images/trip/duck-day3.jpg" alt="Ducky Day 3" onerror="this.style.opacity='.3'"><div class="duck-card-lbl">Day 3 · EPCOT</div></div>
+<div class="duck-card"><img src="images/trip/duck-day4.jpg" alt="Ducky Day 4" onerror="this.style.opacity='.3'"><div class="duck-card-lbl">Day 4 · IOA+USF</div></div>
+<div class="duck-card"><img src="images/trip/duck-day5.jpg" alt="Ducky Day 5" onerror="this.style.opacity='.3'"><div class="duck-card-lbl">Day 5 · Epic</div></div>
+</div></div>
+
+<div class="sec"><div class="slbl">Trip photos</div>
+<div class="card blue"><div class="ct">📷 View trip photos — Google Drive</div><div class="cb">The full photo album for the group. Link active for Marc, Freha, Rob, and Jenna.<br><br><a class="drive-btn" href="https://drive.google.com/drive/folders/1fIoTCIFb2D-EEzXp_b2cexuhSBrmoLOh?usp=drive_link" target="_blank">📷 Open Photo Album</a></div></div></div>
+
+<div class="sec"><div class="slbl">Day-by-day</div>
+
+<div class="tr-day">
+<div class="tr-day-hdr"><span class="tr-day-num">Day 0</span><span class="tr-day-date">Saturday · May 16</span><span class="tr-day-park">Disney Springs</span></div>
+<div class="tr-headline">The four arrive in Orlando, Ducky makes his debut, and Morimoto Asia sets the tone for the week.</div>
+<div class="tr-narrative">
+<p>Marc and Freha had driven down from Fayetteville, NC to Gainesville the day prior — the trip to Orlando was the second leg of that drive. They checked in to Port Orleans French Quarter before 3:00 PM, an early check-in pulled off through the Disney app. The room, on the third floor, required a bit of a walk from the parking lot but offered an immersive view over the resort waterway. Rob and Jenna landed at MCO at 2:30 PM on Southwest WN2648 from Las Vegas; Marc picked them up at Level 1 curbside after the "bags in hand" text came through.</p>
+<p>The plan had the group taking the POFQ boat to Disney Springs, but it wasn't running that evening, so they took the bus instead. Ticket activation at the Disney Ticket Center went without a hitch. A wander through Disney Springs followed — including a stop at an art gallery where an artist was signing original prints, including a Nightmare Before Christmas canvas that nearly came home for $500. Gideon's Bakehouse had a long walk-up line and no virtual queue in operation; the chocolate chip cookie stays on the list for next time. Dinner at Morimoto Asia was a genuine hit: Freha's tuna sushi and Marc's peking duck with fresh bao buns were the highlights. The dinner grew to a table of six — a couple who drove over from Gainesville joined the group for the evening. Late back to the resort, bags staged for the morning bell services transfer to Boardwalk Inn.</p>
+<p>Ducky made his first appearance that night — photographed floating in Freha's drink, completely unaware of what the next six days would hold.</p>
+</div>
+<div class="tr-km-lbl">Key Moments</div>
+<ul class="tr-km">
+<li>Early app check-in; third-floor room with waterway view at POFQ</li>
+<li>Bus substituted for the boat to Disney Springs — no impact on the evening</li>
+<li>Military Salute ticket activation at Disney Ticket Center: smooth and quick</li>
+<li><strong>Gideon's Bakehouse</strong> — no virtual queue; walk-up line too long. Deferred to next visit.</li>
+<li><strong>Morimoto Asia</strong> — Freha's tuna sushi, Marc's peking duck. A strong opening night.</li>
+<li>A couple from Gainesville joined the table for dinner — a table of six</li>
+<li><strong>Ducky's debut</strong> — photographed in Freha's drink. The mascot is born.</li>
+</ul>
+<div class="tr-photos">
+<div class="tr-photo"><img src="images/trip/day0-group.jpg" alt="Group at Disney Springs" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">The four · Disney Springs</div></div>
+<div class="tr-photo"><img src="images/trip/day0-duck.jpg" alt="Ducky in Freha's drink" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">Ducky · his first appearance</div></div>
+</div>
+</div>
+
+<div class="tr-day">
+<div class="tr-day-hdr"><span class="tr-day-num">Day 1</span><span class="tr-day-date">Sunday · May 17</span><span class="tr-day-park">Magic Kingdom</span></div>
+<div class="tr-headline">A full day at Magic Kingdom, a lesson about early entry, and a photo 35 years in the making.</div>
+<div class="tr-narrative">
+<p>The group caught the bus from Boardwalk Inn to Magic Kingdom and arrived for early entry. The first lesson of the trip came quickly: Frontierland is physically closed during early entry — not just the rides within it. Pre-positioning at a closed land isn't possible. The group pivoted to Tomorrowland, knocked out Buzz Lightyear, and waited for the rest of the park to open before making their way clockwise to Jungle Cruise. The strategy largely held, though Big Thunder Mountain required a later return in the evening rather than the planned morning window.</p>
+<p>Haunted Mansion was undergoing a full exterior refurbishment — the building was entirely wrapped in scaffolding with a photo of the facade printed over it. An unusual queue experience, but the ride was running and the group rode it. Seven Dwarfs Mine Train briefly went down during the Lightning Lane window and came back up in time. TRON was a standout: the ride exceeded expectations for the whole group, and Freha surprised herself by wanting to go again. The day's most anticipated moment came quietly near Pinocchio's Village Haus — a photo taken at the exact spot where a childhood photograph of Freha was taken in the summer of 1990. The group left before the fireworks and beat the mass exodus cleanly, then ended the night with an unplanned stop at The Cake Bake Shop by Gwendolyn Rogers on the Boardwalk. The chocolate cake was, by all accounts, among the best any of them had ever eaten.</p>
+</div>
+<div class="tr-km-lbl">Key Moments</div>
+<ul class="tr-km">
+<li><strong>Early entry lesson</strong> — Frontierland physically closed; cannot pre-position in closed lands</li>
+<li>Buzz Lightyear in Tomorrowland first; Jungle Cruise standby after Frontierland opened</li>
+<li>Haunted Mansion — fully wrapped in refurbishment scaffolding; ride was operating</li>
+<li>Seven Dwarfs — went down during LL window, recovered in time</li>
+<li>TRON — Freha wanted to go again</li>
+<li>Big Thunder Mountain — required an evening return rather than the planned morning window</li>
+<li><strong>Freha's photo recreation at Pinocchio's Village Haus — completed</strong></li>
+<li>Left before fireworks; clean exit via bus back to Boardwalk</li>
+<li><strong>Unplanned: The Cake Bake Shop at Boardwalk.</strong> Best chocolate cake of the trip.</li>
+</ul>
+<div class="tr-photos">
+<div class="tr-photo"><img src="images/trip/mk-group.jpg" alt="Group at Magic Kingdom" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">Magic Kingdom</div></div>
+<div class="tr-photo"><img src="images/trip/freha-recreation.jpg" alt="Freha photo recreation" data-ba-before="images/photo-freha-reference.jpg" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">Freha · recreation · 2026</div></div>
+<div class="tr-photo"><img src="images/trip/duck-day6.jpg" alt="Ducky Day 1" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">Ducky · Day 1 *</div></div>
+</div>
+</div>
+
+<div class="tr-day">
+<div class="tr-day-hdr"><span class="tr-day-num">Day 2</span><span class="tr-day-date">Monday · May 18</span><span class="tr-day-park">Animal Kingdom → Hollywood Studios</span></div>
+<div class="tr-headline">The group's best safari ever, a surprise museum, and a full evening at Hollywood Studios capped by Fantasmic.</div>
+<div class="tr-narrative">
+<p>Animal Kingdom delivered from the first minutes. The group arrived during early entry and went directly to Na'vi River Journey, then to the Safari — catching the animals at their most active in the morning light. Giraffes, elephants, lions, and more were moving freely through the landscape. By unanimous agreement, it was the best safari any of them had done. Expedition Everest followed, then Kali River Rapids — which opened around 10:00 AM and left the group significantly wetter than anticipated on an already hot day. Flight of Passage closed out Pandora before a walk through Gorilla Falls Exploration Trail and lunch at Satu'li Canteen. The group caught the bus to Hollywood Studios.</p>
+<p>At Hollywood Studios, Star Tours tapped in immediately upon arrival to start the Multi Pass rolling chain, followed by Smugglers Run and Rise of the Resistance. The Mandalorian and Grogu were spotted doing character photos nearby — an unplanned moment. After Toy Story Mania and Slinky Dog Dash (and an impromptu photo with Edna Mode), the group wandered into Walt Disney Presents — an unplanned stop that became one of the day's highlights. The museum and short documentary were a perfect lead-in to Mickey &amp; Minnie's Runaway Railway. The evening carried through Sci-Fi Dine-In (VIP Fantasmic vouchers collected), a look at the still-closed Rock 'n' Roller Coaster Muppets re-theme from outside, Tower of Terror at 8:20 PM, and Fantasmic. The Skyliner carried the group back to Boardwalk Inn.</p>
+</div>
+<div class="tr-km-lbl">Key Moments</div>
+<ul class="tr-km">
+<li><strong>Best safari the group has done</strong> — animals active, morning light, excellent timing</li>
+<li>Kali River Rapids — rode at opening (~10 AM); got soaked on a hot day. Worth it.</li>
+<li>Flight of Passage — first time for Freha, Rob, and Jenna</li>
+<li>Mando and Grogu spotted doing character photos — unplanned moment</li>
+<li>Heads Up in queue whenever lines slowed</li>
+<li><strong>Unplanned highlight: Walt Disney Presents</strong> — museum and documentary. Perfect setup for Mickey &amp; Minnie's.</li>
+<li>Edna Mode photo — unplanned, memorable</li>
+<li>Marc bought MagicBand+ in all white</li>
+<li>Rock 'n' Roller Coaster Muppets re-theme visible but not open yet</li>
+<li>Tower of Terror at ~8:20 PM; Fantasmic with VIP seating; Skyliner home</li>
+</ul>
+<div class="tr-photos">
+<div class="tr-photo"><img src="images/trip/ak-group.jpg" alt="Group at Animal Kingdom" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">Animal Kingdom</div></div>
+<div class="tr-photo"><img src="images/trip/hs-group.jpg" alt="Group at Hollywood Studios" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">Hollywood Studios</div></div>
+<div class="tr-photo"><img src="images/trip/duck-day2.jpg" alt="Ducky Day 2" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">Ducky · Day 2</div></div>
+</div>
+</div>
+
+<div class="tr-day">
+<div class="tr-day-hdr"><span class="tr-day-num">Day 3</span><span class="tr-day-date">Tuesday · May 19</span><span class="tr-day-park">EPCOT</span></div>
+<div class="tr-headline">EPCOT closed out the Disney leg with a standout fireworks cruise and a captain worth requesting by name.</div>
+<div class="tr-narrative">
+<p>The group entered EPCOT through the International Gateway at early entry and went straight to Remy's Ratatouille Adventure — standby with a line, but moving well at that early hour. Croissants and coffee at the France Pavilion Patisserie followed. The World Showcase was walked clockwise. One note for next time: food stalls throughout the Showcase don't open until late morning or early afternoon — planning around that timing will improve the experience on a future visit. The Mexico Pavilion's Gran Fiesta Tour provided a cool, peaceful indoor reprieve from the heat. Frozen Ever After was skipped and passed without a second thought.</p>
+<p>Guardians of the Galaxy: Cosmic Rewind landed the Disco Inferno — a first for everyone. Space 220 delivered on its immersive premise: the space elevator sequence and simulated orbit views were genuinely impressive. The food was fine but not a reason to return; the experience alone justifies one visit. Mission: SPACE proved more intense than expected for the group. Living with the Land was the afternoon's quieter counterpoint — a classic EPCOT experience that rewards attention. A preview of Soarin' Across America was attempted and turned away. Test Track 3.0 closed out the main ride block. The group left around 7:25 PM for the fireworks cruise, where Mike was their captain on Crescent Lake. He took them near Hollywood Studios before anchoring for Luminous: The Symphony of Us. Floating debris from the fireworks required protective glasses. Mike ran trivia and shared stories about the resort. The experience was unanimously memorable — the group would do it again and recommend it to others.</p>
+</div>
+<div class="tr-km-lbl">Key Moments</div>
+<ul class="tr-km">
+<li>Remy's at rope drop — smooth and quick</li>
+<li><strong>World Showcase note</strong> — food stalls open late morning/early afternoon; not at early entry</li>
+<li>Guardians of the Galaxy: Cosmic Rewind — Disco Inferno soundtrack</li>
+<li>Space 220 — great one-time immersion; food decent but not the reason to return</li>
+<li>Mission: SPACE — more intense than the group anticipated</li>
+<li>Soarin' Across America preview — denied entry; opens to the public the following week</li>
+<li>Marc's family photo recreation at Spaceship Earth plaza — completed</li>
+<li><strong>Fireworks cruise with Mike (captain)</strong> — standout experience. Protective glasses needed for debris. Highly recommended for up to 10 people.</li>
+</ul>
+<div class="tr-photos">
+<div class="tr-photo"><img src="images/trip/epcot-group.jpg" alt="Group at EPCOT" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">EPCOT</div></div>
+<div class="tr-photo"><img src="images/trip/marc-recreation.jpg" alt="Marc family recreation at EPCOT" data-ba-before="images/photo-marc-reference.jpg?v=2" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">Marc · Spaceship Earth · 2026</div></div>
+<div class="tr-photo"><img src="images/trip/fireworks-cruise.jpg" alt="Fireworks cruise" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">Fireworks cruise · Crescent Lake</div></div>
+<div class="tr-photo"><img src="images/trip/duck-day3.jpg" alt="Ducky Day 3" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">Ducky · Day 3</div></div>
+</div>
+</div>
+
+<div class="tr-day">
+<div class="tr-day-hdr"><span class="tr-day-num">Day 4</span><span class="tr-day-date">Wednesday · May 20</span><span class="tr-day-park">Islands of Adventure + Universal Studios Florida</span></div>
+<div class="tr-headline">VelociCoaster, wand engravings, Hogwarts Express both ways, and the most underrated show in Orlando.</div>
+<div class="tr-narrative">
+<p>The group activated their Universal Express Passes at the Sapphire Falls lobby and took the boat to City Walk. A lesson surfaced immediately: consolidating all park tickets under one Universal app account does not grant the other guests access on their own devices. The group used paper tickets throughout the day and resolved the issue on Day 5. VelociCoaster was the first ride — a standby line with a short wait at early entry, exactly as intended. Hagrid's Motorbike Adventures followed through the Forbidden Forest queue. Both were strong.</p>
+<p>Rob and Jenna attended the wand experience show at Ollivanders and purchased wands, leaving them for engraving before the group continued to Harry Potter and the Forbidden Journey and the adjacent attractions. The Hogwarts Express carried everyone to Universal Studios Florida. A meal in the Harry Potter area was followed by a clockwise loop: Men in Black, E.T. Adventure, The Mummy, and Fast &amp; Furious. The theming in the Fast &amp; Furious queue was genuinely impressive; the ride itself was the group's biggest disappointment of the day. The Hogwarts Express returned the group to Islands of Adventure, where Rob and Marc used their Express Pass for one final VelociCoaster lap while Freha and Jenna waited at the nearby restaurant. Dudley Do-Right's Ripsaw Falls was not running. Spider-Man delivered solid queue theming. Hulk was skipped by choice in favor of the Bourne Stunt Show — a call that turned out to be well worth making. The show was a genuine surprise highlight for the entire group. CowFish at City Walk closed the evening. The day ended later than planned when a door malfunction at Rob and Jenna's room required maintenance and took over an hour to resolve. The group played Heads Up in the hallway while they waited.</p>
+</div>
+<div class="tr-km-lbl">Key Moments</div>
+<ul class="tr-km">
+<li><strong>Universal app lesson</strong> — don't consolidate all tickets under one account; each person needs their own. Fixed Day 5.</li>
+<li>VelociCoaster — standby, short wait at early entry. Marc and Rob rode again via Express Pass later.</li>
+<li>Rob and Jenna bought wands; both engraved with their names</li>
+<li>Hogwarts Express — both directions; each with a distinct narrative experience</li>
+<li>Fast &amp; Furious — impressive queue; the ride itself was the day's biggest disappointment</li>
+<li>Dudley Do-Right's Ripsaw Falls — not running</li>
+<li><strong>Unplanned highlight: Bourne Stunt Show</strong> — highly underrated; excellent for first-timers</li>
+<li>CowFish at City Walk — good food, good end to the day</li>
+<li>Door malfunction at Sapphire Falls — ~1–2 hrs resolved by maintenance; Heads Up in the hallway</li>
+</ul>
+<div class="tr-photos">
+<div class="tr-photo"><img src="images/trip/ioa-group.jpg" alt="Group at Islands of Adventure" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">Islands of Adventure</div></div>
+<div class="tr-photo"><img src="images/trip/duck-day4.jpg" alt="Ducky Day 4" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">Ducky · Day 4</div></div>
+</div>
+</div>
+
+<div class="tr-day">
+<div class="tr-day-hdr"><span class="tr-day-num">Day 5</span><span class="tr-day-date">Thursday · May 21</span><span class="tr-day-park">Epic Universe</span></div>
+<div class="tr-headline">Epic Universe delivered across five worlds — and Stardust Racers was the ride of the entire trip.</div>
+<div class="tr-narrative">
+<p>The group took the bus to Epic Universe — arriving the day before the park's first birthday. The security line featured a notably lively guard whose energy set the right tone. Inside, the first order of business was fixing the Universal app issue from Day 4: tickets and passes were unlinked from Marc's account and reassigned to each person's own device. The rest of the day ran without that friction.</p>
+<p>The Wizarding World of Harry Potter — Ministry of Magic was the first stop. The detail in the queue for Harry Potter and the Battle at the Ministry was, by collective agreement, the best themed queue any of the group had ever seen. A 30-minute ride delay extended the total wait, but the attraction justified it. Breakfast at Café L'air de la Sirène followed before the group moved to Isle of Berk. Fyre Drill left everyone soaked on a hot day. Hiccup's Wing Gliders was a fun, lighter ride. The Untrainable Dragon show was cancelled; the group received a complimentary Express Pass each in compensation, which Marc and Rob applied directly to Stardust Racers.</p>
+<p>Stardust Racers was the ride of the trip. Neither Marc nor Rob anticipated the intensity, and the free Express Pass meant an immediate second run. The coaster now sits alongside VelociCoaster in their top tier. Super Nintendo World followed — hot, exposed, and worth every minute. The group completed all the interactive mini-games, unlocked the Bowser Jr. Shadow Showdown VR experience using Marc's Power-Up Band, rode Mario Kart: Bowser's Challenge and Donkey Kong Mine-Cart Madness. Dark Universe brought Monsters Unchained and Curse of the Werewolf — Freha loved it. The group noted that the area would hit differently at night, and in retrospect, the ~30–40 minutes of darkness before park close was time better spent in the park than at Pizza Moon. A locker face-recognition failure at Stardust Racers (caused by poor lighting in Rob's setup photo) was eventually resolved by a cast member. The group left before the closing rush and returned to Sapphire Falls.</p>
+</div>
+<div class="tr-km-lbl">Key Moments</div>
+<ul class="tr-km">
+<li>Universal app fix — tickets unlinked and reassigned to each person's own device</li>
+<li>Security guard at entry — memorable; set the right tone for the day</li>
+<li><strong>Ministry of Magic queue</strong> — best themed queue any of the group has experienced</li>
+<li>Battle at the Ministry — 30-min delay; ride was worth the full wait</li>
+<li>Isle of Berk — Fyre Drill: soaked again on a hot day</li>
+<li>Untrainable Dragon show — cancelled; group received a free Express Pass each in compensation</li>
+<li><strong>Stardust Racers — ride of the trip.</strong> On par with VelociCoaster. Rode multiple times.</li>
+<li>Super Nintendo World — all mini-games, Mario Kart, Donkey Kong, Bowser Jr. VR via Power-Up Band</li>
+<li>Dark Universe — Monsters Unchained + Curse of the Werewolf; Freha loved it</li>
+<li>Locker face recognition failure — resolved by cast member; take the setup photo in good lighting</li>
+<li>Note for next time: use the final darkness window in the parks, not at a restaurant</li>
+</ul>
+<div class="tr-photos">
+<div class="tr-photo"><img src="images/trip/epic-group.jpg" alt="Group at Epic Universe" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">Epic Universe</div></div>
+<div class="tr-photo"><img src="images/trip/epic-ministry.jpg" alt="Ministry of Magic" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">Ministry of Magic</div></div>
+<div class="tr-photo"><img src="images/trip/duck-day5.jpg" alt="Ducky Day 5" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">Ducky · Day 5</div></div>
+</div>
+</div>
+
+<div class="tr-day">
+<div class="tr-day-hdr"><span class="tr-day-num">Day 6</span><span class="tr-day-date">Friday · May 22</span><span class="tr-day-park">Magic Kingdom — an unplanned final morning</span></div>
+<div class="tr-headline">Jenna's reservation at the Crystal Palace brought the group back to Magic Kingdom for a final morning together.</div>
+<div class="tr-narrative">
+<p>The final morning was entirely unplanned in the best way. Jenna made a reservation at the Crystal Palace for a Winnie the Pooh character dining experience, which locked in Magic Kingdom for the final morning. Bags were left at Sapphire Falls bell services; Rob and Jenna's luggage went into the Tesla. The group drove to Magic Kingdom and took the ferry from the Transportation and Ticket Center to the main entrance.</p>
+<p>TRON on standby had a 35-minute wait — fast for what it is. Seven Dwarfs Mine Train followed before the Crystal Palace opened for lunch. The buffet was simple and generous. Piglet, Eeyore, Tigger, and Winnie the Pooh all made appearances; the photo opportunities were unhurried. The Winnie the Pooh dark ride followed, though some members of the group were put off by guests touching surfaces in the queue. The Walt Disney World Railroad from Fantasyland to Main Street offered a fitting close to the week. Some final Main Street shopping, and then the tram back to the parking lot — where a cast member who clearly loved his job made the ride memorable. The group drove to MCO. Rob and Jenna were dropped at the airport. Trip complete.</p>
+</div>
+<div class="tr-km-lbl">Key Moments</div>
+<ul class="tr-km">
+<li><strong>Crystal Palace</strong> — Jenna made the reservation; character lunch with Piglet, Eeyore, Tigger, and Pooh</li>
+<li>Ferry to Magic Kingdom main entrance — a proper send-off arrival</li>
+<li>TRON standby — 35-minute wait; a good final coaster</li>
+<li>Crystal Palace — simple buffet, unhurried character interactions, great photos</li>
+<li>WDW Railroad from Fantasyland to Main Street — a fitting way to wind down</li>
+<li>Cast member on the parking lot tram — memorable; clearly loves the job</li>
+<li>Rob and Jenna dropped at MCO. Marc and Freha continued to Gainesville.</li>
+<li><strong>Trip complete.</strong></li>
+</ul>
+<div class="tr-photos">
+<div class="tr-photo"><img src="images/trip/crystal-palace.jpg" alt="Crystal Palace character lunch" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">Crystal Palace · Day 6</div></div>
+<div class="tr-photo"><img src="images/trip/duck-day6.jpg" alt="Ducky Day 6" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">Ducky · Day 6</div></div>
+</div>
+</div>
+
+</div><!-- end day-by-day sec -->
+</div><!-- end pnl-tr -->
+
+
 <!-- ═══ OVERVIEW ═══ -->
-<div id="pnl-ov" class="pnl act">
+<div id="pnl-ov" class="pnl">
+<div class="trip-done-bar"><span class="trip-done-lbl">Orlando 2026 — Trip Complete</span><span class="trip-done-meta">May 16–22, 2026 · Marc · Freha · Rob · Jenna</span></div>
 <div class="hero"><div class="hero-bg" id="hero-bg" aria-hidden="true"></div>
   <div class="hero-lbl">Marc · Freha · Rob · Jenna</div>
-  <div id="cd-strip" class="cd-strip">
-    <span class="cd-lbl" id="cd-lbl">ORLANDO IN</span>
-    <span class="cd-num" id="cd-d">--</span><span class="cd-unit">d</span>
-    <span class="cd-sep"> · </span>
-    <span class="cd-num" id="cd-h">--</span><span class="cd-unit">h</span>
-    <span class="cd-sep"> · </span>
-    <span class="cd-num" id="cd-m">--</span><span class="cd-unit">m</span>
-    <span class="cd-sep"> · </span>
-    <span class="cd-num" id="cd-s">--</span><span class="cd-unit">s</span>
-  </div>
+  <div class="cd-strip trip-done"><span class="cd-lbl">Trip archived · May 2026</span></div>
   <div class="hero-title">The <span>Orlando</span> Trip</div>
   <div class="hero-sub">May 16–22, 2026 · Disney World + Universal</div>
   <div class="gpills">
@@ -271,13 +556,13 @@ body.has-sub .wrap{padding-top:calc(var(--hh) + var(--th) + var(--sh) + 16px)}
 <div class="sec"><div class="slbl">Trip at a glance</div>
 <div class="rl">
   <div class="ir"><span class="lbl">May 15 (Fri)</span><span class="val">Fayetteville NC → overnight Gainesville FL · prep for Orlando arrival</span></div>
-  <div class="ir"><span class="lbl">May 16 (Sat)</span><span class="val">Gainesville → Orlando · pick up Rob &amp; Jenna at <span class="gl" data-term="MCO">MCO</span> · Disney Springs · Check in <span class="gl" data-term="POFQ">POFQ</span></span></div>
+  <div class="ir"><span class="lbl">May 16 (Sat)</span><span class="val">Gainesville → Orlando · <span class="gl" data-term="MCO">MCO</span> pickup · Disney Springs · Ticket activation · Morimoto Asia 8:30 PM · Check in <span class="gl" data-term="POFQ">POFQ</span></span></div>
   <div class="ir"><span class="lbl">May 17 (Sun)</span><span class="val">Magic Kingdom · Early Entry 8:30 AM · Check in Boardwalk Inn</span></div>
   <div class="ir"><span class="lbl">May 18 (Mon)</span><span class="val">Animal Kingdom AM → Hollywood Studios PM · Fantasmic 9 PM</span></div>
   <div class="ir"><span class="lbl">May 19 (Tue)</span><span class="val"><span class="gl" data-term="EPCOT">EPCOT</span> · Space 220 3 PM · Fireworks Cruise 7:45 PM · Check in Sapphire Falls</span></div>
-  <div class="ir"><span class="lbl">May 20 (Wed)</span><span class="val">Universal Day 1 · <span class="tent-tag">DATES TBD</span> <span class="gl" data-term="IOA">IOA</span>+<span class="gl" data-term="USF">USF</span> or Epic Universe</span></div>
-  <div class="ir"><span class="lbl">May 21 (Thu)</span><span class="val">Universal Day 2 · <span class="tent-tag">DATES TBD</span> <span class="gl" data-term="IOA">IOA</span>+<span class="gl" data-term="USF">USF</span> or Epic Universe</span></div>
-  <div class="ir"><span class="lbl">May 22 (Fri)</span><span class="val">Optional Disney · Rob &amp; Jenna fly 6:50 PM · Marc &amp; Freha → Gainesville</span></div>
+  <div class="ir"><span class="lbl">May 20 (Wed)</span><span class="val"><span class="gl" data-term="IOA">IOA</span> + <span class="gl" data-term="USF">USF</span> · <span class="gl" data-term="Express Pass">Express Pass</span> · VelociCoaster · Hagrid's · Bourne Stunt Show</span></div>
+  <div class="ir"><span class="lbl">May 21 (Thu)</span><span class="val">Epic Universe · Ministry of Magic · Stardust Racers · Super Nintendo World · Dark Universe</span></div>
+  <div class="ir"><span class="lbl">May 22 (Fri)</span><span class="val">Magic Kingdom — Crystal Palace character dining · Rob &amp; Jenna fly 6:50 PM · Marc &amp; Freha → Gainesville</span></div>
 </div></div>
 
 <div class="sec"><div class="slbl">All confirmed Disney Lightning Lane bookings</div>
@@ -314,6 +599,7 @@ body.has-sub .wrap{padding-top:calc(var(--hh) + var(--th) + var(--sh) + 16px)}
 <div class="ll-row"><div><div class="ll-name"><span class="gl" data-term="EPCOT">EPCOT</span> Fireworks Cruise</div><div class="ll-sub">Yacht Club Resort dock · Conf# 356076674279</div></div><div class="ll-time"><div class="ll-window">7:45 PM</div></div></div>
 </div></div>
 
+<div class="sec"><div class="slbl">Trip photos</div><div class="card blue"><div class="ct">📷 Full trip photo album — Google Drive</div><div class="cb">Shared with Marc, Freha, Rob, and Jenna.<br><br><a class="drive-btn" href="#" target="_blank">📷 Open Photo Album</a></div></div></div>
 <div class="sec"><div class="slbl">May 16 — Disney Springs · activate military salute tickets</div>
 <div class="card blue"><div class="ct">🛍️ Disney Springs is our arrival day destination</div><div class="cb">
 Before we can use our <span class="gl" data-term="Military Salute">Military Salute</span> discounted park tickets at Magic Kingdom on May 17, they must first be <strong>activated in person at a Disney Springs Guest Services location</strong> or a Disney park ticket window. Disney Springs has a dedicated Guest Services desk that handles this without requiring a park ticket.<br><br>
@@ -356,7 +642,7 @@ Before we can use our <span class="gl" data-term="Military Salute">Military Salu
   <div class="ir"><span class="lbl"><span class="gl" data-term="MCO">MCO</span> pickup</span><span class="val">Marc at Level 1 curbside · timing flexible · R&amp;J text when bags are in hand</span></div>
   <div class="ir"><span class="lbl">Big moment</span><span class="val">Drive through the Disney World Main Entrance on World Drive — trip officially starts here</span></div>
   <div class="ir"><span class="lbl">Check-in</span><span class="val">Port Orleans French Quarter · all four · ~4:15–4:30 PM</span></div>
-  <div class="ir"><span class="lbl">Evening</span><span class="val">Disney Springs by boat · ticket activation first · dinner · explore</span></div>
+  <div class="ir"><span class="lbl">Evening</span><span class="val">Disney Springs by boat · ticket activation · explore · Morimoto Asia dinner 8:30 PM</span></div>
   <div class="ir"><span class="lbl">Tonight</span><span class="val">Strategic unpack + early night — <span class="gl" data-term="MK">MK</span> Early Entry 8:30 AM tomorrow</span></div>
 </div></div>
 
@@ -373,7 +659,8 @@ Before we can use our <span class="gl" data-term="Military Salute">Military Salu
 <div class="tli"><div class="tll"><span class="tlt">4:15–5:30</span><div class="dot amb"></div></div><div class="tlc"><div class="ttl">Set up rooms · freshen up · change</div><div class="tds">Unpack <strong>strategically</strong> — see the prep card below. Keep tomorrow's <span class="gl" data-term="MK">MK</span> day bag separate and at the door.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">~5:30</span><div class="dot blue"></div></div><div class="tlc"><div class="ttl"><span class="gl" data-term="POFQ">POFQ</span> boat to Disney Springs</div><div class="tds">Direct boat from the resort dock — no driving, no parking. Departs roughly every 20 min, ~10–15 min ride. Check the schedule at the <span class="gl" data-term="POFQ">POFQ</span> concierge.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">~5:45</span><div class="dot grn"></div></div><div class="tlc"><div class="ttl">Arrive Disney Springs · Priority #1: Ticket Activation</div><div class="tds"><strong>Guest Services near Town Center — first stop.</strong> Marc activates the <span class="gl" data-term="Military Salute">Military Salute</span> tickets in person. Bring military ID. This must happen before any park entry tomorrow. After that — the evening is ours.</div></div></div>
-<div class="tli"><div class="tll"><span class="tlt">6:00+</span><div class="dot tel"></div></div><div class="tlc"><div class="ttl">Disney Springs — dinner and explore</div><div class="tds">World of Disney (largest Disney store anywhere). LEGO Store. The Edison bar. Homecoming by Art Smith for Florida comfort food. STK Steakhouse. Wine Bar George. No park tickets needed here.</div></div></div>
+<div class="tli"><div class="tll"><span class="tlt">6:00+</span><div class="dot tel"></div></div><div class="tlc"><div class="ttl">Disney Springs — explore before dinner</div><div class="tds">World of Disney (largest Disney store anywhere). LEGO Store. The Edison bar. Browse Town Center. No park tickets needed. Reservation is at 8:30 — plenty of time to wander and soak in the arrival night energy.</div></div></div>
+<div class="tli"><div class="tll"><span class="tlt">8:30</span><div class="dot tel"></div></div><div class="tlc"><div class="ttl">🍽️ Morimoto Asia · dinner · Conf# 2110916159</div><div class="tds">Table for 6 · confirmed via OpenTable. High-end Asian fusion — the full sit-down experience. Located at Disney Springs Town Center.<br><br>If the group prefers something lighter or the evening calls for it, <strong>Morimoto Asia Street Food</strong> (outdoor quick service right outside the main restaurant) serves many of the same dishes at lower prices with no wait. Either way, the reservation is confirmed and can be modified or cancelled via OpenTable if needed.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">~9:00</span><div class="dot red"></div></div><div class="tlc"><div class="ttl">Return boat to <span class="gl" data-term="POFQ">POFQ</span> · early night</div><div class="tds">Early entry at <span class="gl" data-term="MK">MK</span> tomorrow means an early start. The earlier you're up, the more you get out of it — but don't sacrifice sleep chasing a clock. The trip is a marathon, not a sprint.</div></div></div>
 </div></div>
 
@@ -391,7 +678,7 @@ Before we can use our <span class="gl" data-term="Military Salute">Military Salu
 <div class="park-banner">
   <img src="images/hero-bg.jpg" class="banner-img" alt="" loading="lazy">
   <div class="banner-overlay">
-    <div class="banner-title">Considerations</div>
+    <div class="banner-title">Planning Considerations</div>
     <div class="banner-sub">Tipping · Bags · Weather snapshot · Good to know on the road</div>
   </div>
 </div>
@@ -432,6 +719,21 @@ Before we can use our <span class="gl" data-term="Military Salute">Military Salu
     <div class="banner-title">Magic Kingdom</div>
     <div class="banner-sub">Sunday · May 17, 2026 · Early Entry 8:30 AM · Clockwise from Adventureland</div>
   </div>
+</div>
+<div class="outcome-summary">
+<div class="outcome-summary-lbl">How the day went</div>
+<div class="outcome-summary-body">A full day at Magic Kingdom with most of the plan executed. Early entry revealed that Frontierland is physically closed during that window — the group pivoted to Tomorrowland and adapted. Everything else largely followed the strategy. The biggest unplanned moment came after the park: The Cake Bake Shop at Boardwalk.</div>
+<div class="outcome-chips">
+<span class="chip done">Jungle Cruise — standby</span>
+<span class="chip done">Pirates, Tiana's Bayou Adventure</span>
+<span class="chip modified">BTM — rescheduled to evening return</span>
+<span class="chip modified">Haunted Mansion — building wrapped in refurb; ride operated</span>
+<span class="chip modified">SDMT — briefly down; recovered in time</span>
+<span class="chip highlight">TRON — Freha wanted to go again</span>
+<span class="chip done">Freha's photo recreation — completed</span>
+<span class="chip done">Left before fireworks — clean exit</span>
+<span class="chip unplanned">Cake Bake Shop at Boardwalk — best chocolate cake</span>
+</div>
 </div>
 <div class="sec"><div class="slbl">May 17 — Magic Kingdom · clockwise from Adventureland</div>
 <div class="rl">
@@ -485,11 +787,11 @@ Before we can use our <span class="gl" data-term="Military Salute">Military Salu
 <div class="tli"><div class="tll"><span class="tlt">12:35</span><div class="dot tel"></div></div><div class="tlc"><div class="ttl">🌭 Casey's Corner · lunch</div><div class="tds">Located on Main Street near the hub — a short walk from Peter Pan and Fantasyland. Hot dogs, corn dogs, loaded fries. Classic <span class="gl" data-term="MK">MK</span>. We have 90 minutes before the <span class="gl" data-term="SDMT">SDMT</span> window. Eat, rest, and let the group recharge. Check the app for any additional rolling picks during lunch. Note: Casey's Corner Pianist peforms at 12:10 PM and 1:25 PM around this time.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">2:05</span><div class="dot pur"></div></div><div class="tlc"><div class="ttl">Seven Dwarfs Mine Train · Single Pass — all four together</div><div class="tds">Storybook Circus area. First time for Rob and Jenna. Classic coaster snaking through the diamond mines with animated dwarfs. Single Pass LL, so no rolling reservations.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">2:50</span><div class="dot tel"></div></div><div class="tlc"><div class="ttl">Walt Disney World Railroad — Fantasyland Station</div><div class="tds">First time for all four of us. Shuttle mode only (Main St ↔ Fantasyland — Frontierland station closed for Cars expansion). 10–12 min scenic ride. Great leg rest before the Tomorrowland push.</div></div></div>
-<div class="tli"><div class="tll"><span class="tlt">3:15</span><div class="dot pur"></div></div><div class="tlc"><div class="ttl"><span class="gl" data-term="TRON">TRON</span> Lightcycle / Run · Single Pass — FIRST RIDE</div><div class="tds">Pre-booked 3:15–4:15 PM. Arrive 5–10 min early — locker system adds time. A next-generation launch coaster unlike anything else here. After riding: stay in Tomorrowland. Space Mountain, Buzz Lightyear, PeopleMover all nearby. Second <span class="gl" data-term="TRON">TRON</span> ride comes tonight during fireworks (see <span class="xref" onclick="navDirect('ex',null)">Exit Plan</span>).</div></div></div>
+<div class="tli"><div class="tll"><span class="tlt">3:15</span><div class="dot pur"></div></div><div class="tlc"><div class="ttl"><span class="gl" data-term="TRON">TRON</span> Lightcycle / Run · Single Pass — FIRST RIDE</div><div class="tds">Pre-booked 3:15–4:15 PM. Arrive 5–10 min early — locker system adds time. A next-generation launch coaster unlike anything else here. After riding: stay in Tomorrowland. Space Mountain, Buzz Lightyear, PeopleMover all nearby. Second <span class="gl" data-term="TRON">TRON</span> ride comes tonight during fireworks (see <span class="xref" onclick="navDirect('mk','disney')">Exit Plan</span>).</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">4:35</span><div class="dot blue"></div></div><div class="tlc"><div class="ttl">Buzz Lightyear Space Ranger Spin · Multi Pass <span class="gl" data-term="LL">LL</span></div><div class="tds">Pre-booked 4:35–5:35 PM. Right next to <span class="gl" data-term="TRON">TRON</span> in Tomorrowland. Group competition — rotate targets on the ride. After tapping: check for any remaining rolling picks.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">5–8 PM</span><div class="dot amb"></div></div><div class="tlc"><div class="ttl">Afternoon flex — rolling picks + filler rides</div><div class="tds">PeopleMover: always zero wait, great aerial Tomorrowland overview. Space Mountain if not already done. Enchanted Tiki Room (10-min classic show, walk-on, air-conditioned). Keep tracking rolling availability throughout the afternoon.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">Late eve</span><div class="dot pur"></div></div><div class="tlc"><div class="ttl">Haunted Mansion rolling <span class="gl" data-term="LL">LL</span> — Liberty Square</div><div class="tds">Secured rolling after Tiana's tap, targeting an 8:30–9:30 PM return window. Liberty Square is quiet and atmospheric at night while crowds are on Main Street for fireworks.</div></div></div>
-<div class="tli"><div class="tll"><span class="tlt">~9 PM</span><div class="dot pur"></div></div><div class="tlc"><div class="ttl">Evening — see <span class="gl" data-term="MK">MK</span> Exit Plan tab</div><div class="tds">Group decides: <span class="gl" data-term="TRON">TRON</span> standby during fireworks for a second ride, early exit before fireworks, or watch fireworks and exit. See <span class="xref" onclick="navDirect('ex',null)">Exit Plan</span> for the full breakdown of all options.</div></div></div>
+<div class="tli"><div class="tll"><span class="tlt">~9 PM</span><div class="dot pur"></div></div><div class="tlc"><div class="ttl">Evening — see <span class="gl" data-term="MK">MK</span> Exit Plan tab</div><div class="tds">Group decides: <span class="gl" data-term="TRON">TRON</span> standby during fireworks for a second ride, early exit before fireworks, or watch fireworks and exit. See <span class="xref" onclick="navDirect('mk','disney')">Exit Plan</span> for the full breakdown of all options.</div></div></div>
 <div class="tli"><div class="tll"><span class="tlt">End of night</span><div class="dot grn"></div></div><div class="tlc"><div class="ttl">Check in to Boardwalk Inn</div><div class="tds">Bags from <span class="gl" data-term="POFQ">POFQ</span> have been transferred via <span class="gl" data-term="Bell Services">Bell Services</span> and will be at the front desk or room. Transport from <span class="gl" data-term="MK">MK</span>: <span class="gl" data-term="Minnie Van">Minnie Van</span> from inside the park via <span class="gl" data-term="MDE">MDE</span> (best option — pickup inside gates, no crowd), or walk to Contemporary and rideshare. Destination: <strong>Boardwalk Inn</strong>. Early night — <span class="gl" data-term="AK">AK</span> early entry starts at 7:30 AM tomorrow.
 <div class="app-btns">
   <a class="app-btn mde" href="disneyworld://" data-fallback="https://disneyworld.disney.go.com/plans">🏰 <span class="gl" data-term="MDE">MDE</span> / <span class="gl" data-term="Minnie Van">Minnie Van</span></a>
@@ -497,47 +799,6 @@ Before we can use our <span class="gl" data-term="Military Salute">Military Salu
   <a class="app-btn" href="uber://" data-fallback="https://m.uber.com/looking">🚕 Uber</a>
 </div>
 </div></div></div>
-</div></div>
-</div>
-
-<!-- ═══ EXIT PLAN ═══ -->
-<div id="pnl-ex" class="pnl">
-<div class="park-banner">
-  <img src="images/mk-night-banner.jpg" class="banner-img" alt="" loading="lazy">
-  <div class="banner-overlay">
-    <div class="banner-title"><span class="gl" data-term="MK">MK</span> Exit Strategy</div>
-    <div class="banner-sub">Riding out the crowd · The <span class="gl" data-term="TRON">TRON</span> Maneuver · <span class="gl" data-term="Minnie Van">Minnie Van</span> to Boardwalk</div>
-  </div>
-</div>
-<div class="sec"><div class="slbl">The mass exodus — what we're dealing with</div>
-<div class="card red"><div class="ct">Magic Kingdom end-of-night crush</div><div class="cb"><span class="gl" data-term="MK">MK</span> hosts up to 80,000 guests. After Happily Ever After (~17 min, ~9 PM), most attempt to exit simultaneously. Main Street: shoulder-to-shoulder. Monorail + bus lines: 45–60+ min. This is one of the worst exit experiences at any theme park on Earth. We plan around it intentionally. <b>Being well-rested for <span class="gl" data-term="AK">AK</span> early entry at 7:30 AM tomorrow is a completely valid reason to leave early.</b></div></div></div>
-
-
-<div class="sec"><div class="slbl">Exit options — group decides on the night</div>
-<div class="ec rec"><div class="ec-h"><div class="ec-t">Option A — Ride Out the Crowd (The <span class="gl" data-term="TRON">TRON</span> Maneuver + more)</div><span class="bdg pur">Recommended</span></div><div class="ec-b">The strategy is simple: while the rest of the park floods Main Street for fireworks, we stay deep in Tomorrowland and Fantasyland riding everything with short waits. The goal isn't just <span class="gl" data-term="TRON">TRON</span> — it's stacking as many good rides as possible until the exodus wave crests and clears.<br><br><b>~8:45 PM:</b> Head to <span class="gl" data-term="TRON">TRON</span> standby queue. Ride during fireworks (20–35 min wait, vs. 60–90+ earlier). Exit <span class="gl" data-term="TRON">TRON</span> ~9:20–9:30 PM.<br><br><b>After <span class="gl" data-term="TRON">TRON</span>:</b> Keep riding. Space Mountain (~15–25 min during fireworks), Seven Dwarfs Mine Train, Big Thunder Mountain, PeopleMover — all have dramatically reduced waits during and immediately after the show. Stack rides for 30–45 min until the Main Street wave thins.<br><br><b>~9:45–10 PM:</b> Exit when the crowd has organically dispersed. Request <span class="gl" data-term="Minnie Van">Minnie Van</span> to Boardwalk Inn from inside the park. <b><span class="gl" data-term="Minnie Van">Minnie Van</span> pickup is inside the park gates</b> — bypasses the Main Street crush entirely. Cost: ~$35–50, split four ways = ~$9–13 each.
-<div class="app-btns"><a class="app-btn mde" href="disneyworld://" data-fallback="https://disneyworld.disney.go.com/plans">🏰 <span class="gl" data-term="MDE">MDE</span> / <span class="gl" data-term="Minnie Van">Minnie Van</span></a></div></div></div>
-<div class="ec"><div class="ec-h"><div class="ec-t">Option B — Leave before fireworks</div><span class="bdg grn">Smart <span class="gl" data-term="AK">AK</span> prep call</span></div><div class="ec-b">Exit around 8:30–8:45 PM before the exodus begins. Request <span class="gl" data-term="Minnie Van">Minnie Van</span> or rideshare to Boardwalk Inn. <b><span class="gl" data-term="AK">AK</span> early entry is 7:30 AM tomorrow</b> — being well-rested is worth more than a second <span class="gl" data-term="TRON">TRON</span> ride. No shame in calling it early. This is arguably the smartest call given what tomorrow requires. Note: I can see this being the most likely option.
-<div class="app-btns">
-  <a class="app-btn mde" href="disneyworld://" data-fallback="https://disneyworld.disney.go.com/plans">🏰 <span class="gl" data-term="MDE">MDE</span> / <span class="gl" data-term="Minnie Van">Minnie Van</span></a>
-  <a class="app-btn" href="lyft://" data-fallback="https://www.lyft.com/rider">🚗 Lyft</a>
-  <a class="app-btn" href="uber://" data-fallback="https://m.uber.com/looking">🚕 Uber</a>
-</div>
-</div></div>
-<div class="ec"><div class="ec-h"><div class="ec-t">Option C — California Grill</div><span class="bdg red">⚠️ 90% likely cancelled</span></div><div class="ec-b">Exit by 7:15 PM, walk 15–20 min to Contemporary, arrive for 8:20 PM reservation. Disney dims lights and pauses service for fireworks — watch Happily Ever After from the restaurant rooftop over the Seven Seas Lagoon. Crowd-free, cocktail in hand. Forfeit second <span class="gl" data-term="TRON">TRON</span> ride. Truly spectacular — but the reservation will likely be dropped before the trip. Option A or B are the working plans.</div></div>
-
-<div class="al amb" style="margin-top:12px"><strong>Walk to Contemporary — backup rideshare option</strong><p>If <span class="gl" data-term="Minnie Van">Minnie Van</span> isn't available: exit front gates (~9:40 PM), walk 15–20 min north to the Contemporary Resort, call Lyft/Uber from the Contemporary's address. Far less chaotic than the <span class="gl" data-term="MK">MK</span> rideshare staging zone. The Outer Rim bar is there if the group wants a drink while waiting.</p>
-<div class="app-btns">
-  <a class="app-btn" href="lyft://" data-fallback="https://www.lyft.com/rider">🚗 Lyft</a>
-  <a class="app-btn" href="uber://" data-fallback="https://m.uber.com/looking">🚕 Uber</a>
-</div>
-</div></div>
-
-<div class="sec"><div class="slbl">Best standby rides during fireworks window</div>
-<div class="rl">
-<div class="ir"><span class="lbl"><span class="gl" data-term="TRON">TRON</span> Lightcycle</span><span class="val">~20–35 min standby vs. 60–90+ min earlier</span></div>
-<div class="ir"><span class="lbl">Space Mountain</span><span class="val">Drops to ~15–25 min during fireworks</span></div>
-<div class="ir"><span class="lbl">Seven Dwarfs</span><span class="val">Confirmed great fireworks window — partial sky views</span></div>
-<div class="ir"><span class="lbl">PeopleMover</span><span class="val">Always zero wait · great aerial views of Tomorrowland at night</span></div>
 </div></div>
 </div>
 
@@ -549,6 +810,21 @@ Before we can use our <span class="gl" data-term="Military Salute">Military Salu
     <div class="banner-title">Animal Kingdom → Hollywood Studios</div>
     <div class="banner-sub">Monday · May 18, 2026 · Safari at First Light · Fantasmic! 9 PM</div>
   </div>
+</div>
+<div class="outcome-summary">
+<div class="outcome-summary-lbl">How the day went</div>
+<div class="outcome-summary-body">The group's best safari ever set the tone at Animal Kingdom. Kali River Rapids opened around 10 AM and delivered a proper soaking on a hot day. Hollywood Studios ran a full evening culminating in Fantasmic. Walt Disney Presents was an unplanned highlight. The Indiana Jones show timing was missed; the Muppets coaster re-theme was visible but not yet open.</div>
+<div class="outcome-chips">
+<span class="chip done">Safari — best the group has done</span>
+<span class="chip done">Na'vi, Everest, FoP</span>
+<span class="chip modified">Kali — opened ~10 AM; got soaked</span>
+<span class="chip done">Star Tours → rolling chain → Mickey &amp; Minnie's</span>
+<span class="chip done">Rise, Toy Story Mania, Slinky, Tower of Terror</span>
+<span class="chip done">Sci-Fi Dine-In + Fantasmic VIP</span>
+<span class="chip unplanned">Walt Disney Presents — unexpected highlight</span>
+<span class="chip skipped">Indiana Jones — last show earlier than anticipated</span>
+<span class="chip skipped">Rock 'n' Roller Coaster Muppets — not open yet</span>
+</div>
 </div>
 <div class="sec"><div class="slbl">May 18 — Animal Kingdom → Hollywood Studios</div>
 <div class="rl">
@@ -612,6 +888,19 @@ Before we can use our <span class="gl" data-term="Military Salute">Military Salu
     <div class="banner-title"><span class="gl" data-term="EPCOT">EPCOT</span></div>
     <div class="banner-sub">Tuesday · May 19, 2026 · International Gateway · Fireworks Cruise 7:45 PM</div>
   </div>
+</div>
+<div class="outcome-summary">
+<div class="outcome-summary-lbl">How the day went</div>
+<div class="outcome-summary-body">EPCOT's last Disney day closed on a high note with the fireworks cruise. World Showcase food stalls weren't open until later in the morning — worth planning around next time. Space 220 was a genuinely impressive one-time experience; the food was fine but not a reason to return. Soarin' Across America preview was turned away. Mike the captain on the cruise was a standout.</div>
+<div class="outcome-chips">
+<span class="chip done">Remy's — rope drop standby</span>
+<span class="chip modified">World Showcase — food stalls open late morning, not at early entry</span>
+<span class="chip done">Guardians — Disco Inferno</span>
+<span class="chip modified">Space 220 — great immersion; food subpar; one visit is enough</span>
+<span class="chip done">Mission: SPACE, Living with the Land, Test Track 3.0</span>
+<span class="chip skipped">Soarin' Across America preview — denied</span>
+<span class="chip highlight">Fireworks cruise with Mike — standout of the Disney leg</span>
+</div>
 </div>
 <div class="sec"><div class="slbl">May 19 — <span class="gl" data-term="EPCOT">EPCOT</span> · our last Disney day</div>
 <div class="rl">
@@ -692,7 +981,19 @@ Tesla Model 3 trunk: ~15 cu ft. Frunk: ~2.7 cu ft. For 4 people with 3–4 large
     <div class="banner-sub">VelociCoaster · Hagrid's · Hogwarts Express · Park-to-Park · <span class="gl" data-term="Express Pass">Express Pass</span></div>
   </div>
 </div>
-<div class="al amb"><strong>Day assignment TBD</strong><p>Which Universal day is <span class="gl" data-term="IOA">IOA</span>+<span class="gl" data-term="USF">USF</span> vs Epic Universe will be decided closer to the trip based on weather, crowd predictions, and group energy. Both options are ready to execute on either assigned day. We have <span class="gl" data-term="Express Pass">Express Pass</span> for all parks.</p></div>
+<div class="outcome-summary">
+<div class="outcome-summary-lbl">How the day went</div>
+<div class="outcome-summary-body">A full IOA + USF day with VelociCoaster multiple times, Hagrid's, both Hogwarts Express directions, and the Bourne Stunt Show as the day's best surprise. A Universal app issue (all tickets under one account) required paper tickets all day — resolved the following morning. Dudley Do-Right was not running.</div>
+<div class="outcome-chips">
+<span class="chip done">VelociCoaster — standby + Express return</span>
+<span class="chip done">Hagrid's, Forbidden Journey, Hogwarts Express × 2</span>
+<span class="chip modified">Universal app lesson — paper tickets all day; fixed Day 5</span>
+<span class="chip modified">Fast &amp; Furious — impressive queue; ride was the day's biggest disappointment</span>
+<span class="chip skipped">Dudley Do-Right — not running</span>
+<span class="chip unplanned">Bourne Stunt Show — underrated; the group's best unexpected watch</span>
+</div>
+</div>
+<div class="al amb"><strong>Day assignment TBD — this was May 20</strong><p>Which Universal day is <span class="gl" data-term="IOA">IOA</span>+<span class="gl" data-term="USF">USF</span> vs Epic Universe will be decided closer to the trip based on weather, crowd predictions, and group energy. Both options are ready to execute on either assigned day. We have <span class="gl" data-term="Express Pass">Express Pass</span> for all parks.</p></div>
 
 <div class="sec"><div class="slbl"><span class="gl" data-term="IOA">IOA</span> + <span class="gl" data-term="USF">USF</span> — <span class="gl" data-term="EPA">EPA</span> day · VelociCoaster first</div>
 <div class="card blue"><div class="ct"><span class="gl" data-term="IOA">Islands of Adventure</span> + <span class="gl" data-term="USF">Universal Studios Florida</span> · <span class="gl" data-term="EPA">EPA</span> at 8 AM · Walk from Sapphire Falls</div><div class="cb">Both parks are on the north campus — walking distance from Loews Sapphire Falls. Early Park Admission gets us in one hour before official open. For <span class="gl" data-term="IOA">IOA</span>: head directly to VelociCoaster for multiple early laps before crowds build. Park-to-Park tickets let us hop between <span class="gl" data-term="IOA">IOA</span> and <span class="gl" data-term="USF">USF</span> (and ride the Hogwarts Express between them). <span class="gl" data-term="Express Pass">Express Pass</span> covers both parks.</div></div>
@@ -725,7 +1026,20 @@ Tesla Model 3 trunk: ~15 cu ft. Frunk: ~2.7 cu ft. For 4 people with 3–4 large
     <div class="banner-sub">Five worlds · <span class="gl" data-term="EPA">EPA</span> · Resort transport from Sapphire Falls · <span class="gl" data-term="Express Pass">Express Pass</span></div>
   </div>
 </div>
-<div class="al amb"><strong>Day assignment TBD — separate campus, separate day</strong><p>Epic Universe is located ~15 minutes south of Universal's north campus (<span class="gl" data-term="IOA">IOA</span> + <span class="gl" data-term="USF">USF</span>). Resort transportation runs from Sapphire Falls to Epic Universe — no driving needed. Park-hopping between Epic Universe and the north campus is not possible. Each campus is its own dedicated day.</p></div>
+<div class="outcome-summary">
+<div class="outcome-summary-lbl">How the day went</div>
+<div class="outcome-summary-body">Epic Universe exceeded expectations on nearly every front. The Ministry of Magic queue is the best any of the group has seen. Stardust Racers was the ride of the entire trip. The Untrainable Dragon show was cancelled but the free Express Pass it generated was used immediately and well. Dark Universe at night remains on the list for next time.</div>
+<div class="outcome-chips">
+<span class="chip highlight">Stardust Racers — ride of the trip; on par with VelociCoaster</span>
+<span class="chip highlight">Ministry of Magic queue — best themed queue any of them have experienced</span>
+<span class="chip done">Battle at the Ministry, Mario Kart, Donkey Kong, Monsters Unchained</span>
+<span class="chip done">Power-Up Band — Bowser Jr. Shadow Showdown VR</span>
+<span class="chip skipped">The Untrainable Dragon show — cancelled; free Express Pass issued</span>
+<span class="chip skipped">Yoshi ride — skipped</span>
+<span class="chip modified">Dark Universe at night — visited, but the darkness window was spent at Pizza Moon</span>
+</div>
+</div>
+<div class="al amb"><strong>Day assignment TBD — this was May 21</strong><p>Epic Universe is located ~15 minutes south of Universal's north campus (<span class="gl" data-term="IOA">IOA</span> + <span class="gl" data-term="USF">USF</span>). Resort transportation runs from Sapphire Falls to Epic Universe — no driving needed. Park-hopping between Epic Universe and the north campus is not possible. Each campus is its own dedicated day.</p></div>
 
 <div class="sec"><div class="slbl">Epic Universe — five themed worlds</div>
 <div class="card blue"><div class="ct">Epic Universe · South campus · Resort transport from Sapphire Falls · <span class="gl" data-term="EPA">EPA</span> at 8 AM</div><div class="cb">With 11 attractions across five worlds, a full day at Epic Universe is needed. <span class="gl" data-term="EPA">EPA</span> (for Loews hotel guests) gets us in an hour early — use it to hit the highest-demand attractions before crowds build. <span class="gl" data-term="Express Pass">Express Pass</span> covers Epic Universe.</div></div>
@@ -755,31 +1069,100 @@ Tesla Model 3 trunk: ~15 cu ft. Frunk: ~2.7 cu ft. For 4 people with 3–4 large
 </div>
 </div>
 
-<!-- ═══ WHAT'S NEXT ═══ -->
-<div id="pnl-nx" class="pnl">
+<!-- ═══ MAY 22 MK ═══ -->
+<div id="pnl-d6" class="pnl">
 <div class="park-banner">
-  <img src="images/wrapup-banner.jpg" class="banner-img" alt="" loading="lazy">
+  <img src="images/mk-banner.jpg" class="banner-img" alt="" loading="lazy">
   <div class="banner-overlay">
-    <div class="banner-title">What's Next</div>
-    <div class="banner-sub">May 22 options · Airport drop · Marc & Freha → Gainesville</div>
+    <div class="banner-title">May 22 · Magic Kingdom</div>
+    <div class="banner-sub">Friday · Final day · Crystal Palace · Ferry · Trip complete</div>
   </div>
 </div>
-<div class="sec"><div class="slbl">May 22 — optional extra Disney day</div>
-<div class="card tel"><div class="ct">Rob & Jenna fly at 6:50 PM from Orlando · 4th day of park hopper unused</div><div class="cb">
-Rob and Jenna have a 4-day park hopper — May 17, 18, and 19 use 3 days. <strong>Day 4 is still unused.</strong> Marc and Freha have annual passes. A May 22 morning Disney visit is entirely feasible:<br><br>
-<b>Departure math:</b> Flight at 6:50 PM → airport by 4:45–5:00 PM → leave Disney park by ~3:30–4:00 PM (depending on park + traffic). This gives a solid morning and early afternoon, roughly 9 AM–3:30 PM.<br><br>
-<b>Best park option:</b> A park that's easy to enter, easy to leave, and has rides they still want to do. <span class="gl" data-term="EPCOT">EPCOT</span> (familiar, IG entrance nearby if staying at Boardwalk area) or Magic Kingdom (always more to do) are the top candidates.<br><br>
-<b>Logistics:</b> Marc & Freha pack their own bags at Sapphire Falls, leave bags at Sapphire Falls bell services or bring in the Tesla. Pack Rob & Jenna's bags in the Tesla. Drive to Disney from Universal area (~30–40 min). After airport drop: Marc & Freha drive directly to Gainesville (~1.5–2 hrs from <span class="gl" data-term="MCO">MCO</span>). Return to Sapphire Falls to collect Marc & Freha's bags beforehand, OR have them already in the Tesla.
-</div></div>
-<div class="al amb"><strong>Decision needed closer to the date.</strong><p>This is an option, not a commitment. Works best if the group has energy after two Universal days. If everyone's exhausted, a relaxed morning at the resort before airport departure is equally valid.</p></div></div>
-
-<div class="sec"><div class="slbl">After we drop Rob & Jenna at the airport</div>
-<div class="card"><div class="cb">
-<b>Marc & Freha:</b> Airport drop → collect own bags from Tesla (or Sapphire Falls if left there) → drive to Gainesville (~1.5–2 hrs from <span class="gl" data-term="MCO">MCO</span>). Overnight with Freha's family before heading back to Fayetteville, NC.<br><br>
-<b>If doing the May 22 Disney day:</b> Drive from Disney park → <span class="gl" data-term="MCO">MCO</span> drop → Gainesville. Simple.<br><br>
-<b>If skipping May 22 Disney:</b> Depart from Sapphire Falls, drive to <span class="gl" data-term="MCO">MCO</span>, drop Rob & Jenna, continue to Gainesville.
-</div></div></div>
+<div class="outcome-summary">
+<div class="outcome-summary-lbl">How it went</div>
+<div class="outcome-summary-body">The final morning was entirely unplanned. Jenna had quietly made a reservation at the Crystal Palace for a Winnie the Pooh character dining experience, which locked in Magic Kingdom for the final morning. The group drove from Sapphire Falls, took the ferry, and spent a final morning at Magic Kingdom before the airport drop.</div>
+<div class="outcome-chips">
+<span class="chip unplanned">Crystal Palace — Jenna's reservation locked in Day 6</span>
+<span class="chip done">TRON standby — 35 min</span>
+<span class="chip done">Seven Dwarfs Mine Train</span>
+<span class="chip done">Character dining — Piglet, Eeyore, Tigger, Pooh</span>
+<span class="chip done">WDW Railroad Fantasyland → Main Street</span>
 </div>
+</div>
+<div class="sec"><div class="slbl">The day at a glance</div>
+<div class="rl">
+<div class="ir"><span class="lbl">Morning</span><span class="val">Bags at Sapphire Falls bell services · Rob &amp; Jenna luggage in Tesla · Drive to MK</span></div>
+<div class="ir"><span class="lbl">Arrival</span><span class="val">Ferry from Transportation &amp; Ticket Center to main entrance</span></div>
+<div class="ir"><span class="lbl">TRON</span><span class="val">Standby · 35-minute wait</span></div>
+<div class="ir"><span class="lbl">Crystal Palace</span><span class="val">Character dining · Jenna's reservation · Piglet, Eeyore, Tigger, Pooh</span></div>
+<div class="ir"><span class="lbl">Winnie the Pooh ride</span><span class="val">Done · queue surface-touching noted by the group</span></div>
+<div class="ir"><span class="lbl">Railroad</span><span class="val">Fantasyland → Main Street · a fitting close to the week</span></div>
+<div class="ir"><span class="lbl">Departure</span><span class="val">Rob &amp; Jenna → MCO (6:50 PM flight) · Marc &amp; Freha → Gainesville</span></div>
+</div></div>
+<div class="sec"><div class="slbl">Crystal Palace — character dining</div>
+<div class="card blue"><div class="ct">Jenna's reservation — Crystal Palace</div><div class="cb">A classic Magic Kingdom experience that was not part of the original plan. The buffet was simple, filling, and unpretentious. Each character made individual table visits — unhurried, with good photo opportunities. Winnie the Pooh, Tigger, Eeyore, and Piglet all stopped by. A warm and genuinely enjoyable way to spend the final morning together as a group.</div></div>
+<div class="tr-photos">
+<div class="tr-photo"><img src="images/trip/crystal-palace.jpg" alt="Crystal Palace" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">Crystal Palace · May 22</div></div>
+<div class="tr-photo"><img src="images/trip/duck-day6.jpg" alt="Ducky Day 6" onerror="this.style.opacity='.3'"><div class="tr-photo-cap">Ducky · final day</div></div>
+</div></div>
+</div>
+
+
+<!-- ═══ LESSONS LEARNED ═══ -->
+<div id="pnl-ll" class="pnl">
+<div class="park-banner">
+  <img src="images/hero-bg.jpg" class="banner-img" alt="" loading="lazy">
+  <div class="banner-overlay">
+    <div class="banner-title">Lessons Learned</div>
+    <div class="banner-sub">What to carry forward · gear · strategy · timing</div>
+  </div>
+</div>
+
+<div class="sec"><div class="slbl">Park strategy</div>
+<div class="rl">
+<div class="ir"><span class="lbl">MK early entry scope</span><span class="val">Only Tomorrowland is reliably accessible. Other lands are physically closed — cannot pre-position in them. Frontierland, Adventureland, and Liberty Square open with the general park.</span></div>
+<div class="ir"><span class="lbl">Universal app tickets</span><span class="val">Never consolidate all guests' tickets under one account. Each person needs their own app with their own ticket and pass. Fixing it mid-trip works but costs time at every ride that first day.</span></div>
+<div class="ir"><span class="lbl">World Showcase food stalls</span><span class="val">Most stalls open late morning to early afternoon — not at early entry or in the first 1–2 hours. Walk the Showcase in the second half of the day to take full advantage of the food.</span></div>
+<div class="ir"><span class="lbl">Recovery day</span><span class="val">The group hit 20,000–30,000 steps every single day with no buffer. On a 6+ day park trip, at least one half-day at the resort would meaningfully extend everyone's energy for the full run.</span></div>
+<div class="ir"><span class="lbl">Epic Universe at night</span><span class="val">In late May EDT, darkness doesn't arrive until ~8:30 PM with park close at 9 PM — about 30 minutes of true night. Worth prioritizing that window in the parks, not at a restaurant. Or visit when the sun sets earlier.</span></div>
+<div class="ir"><span class="lbl">Indiana Jones show</span><span class="val">The last show of the day was earlier than anticipated. Plan around a specific posted showtime rather than assuming flexibility late in the day.</span></div>
+<div class="ir"><span class="lbl">Gideon's Bakehouse</span><span class="val">No virtual queue was available. Walk up or commit to waiting in a long standby line. Not something you can plan around on the fly.</span></div>
+<div class="ir"><span class="lbl">Heads Up app</span><span class="val">Works well when a queue is stopped or delayed. Impractical when the line is moving at a normal pace. Best as a back-pocket option, not a constant activity.</span></div>
+</div></div>
+
+<div class="sec"><div class="slbl">Universal-specific</div>
+<div class="rl">
+<div class="ir"><span class="lbl">Locker face recognition</span><span class="val">When setting up your locker photo, take it in good, even lighting. A photo in poor light will fail facial recognition retrieval — requires a cast member to resolve.</span></div>
+<div class="ir"><span class="lbl">The Bourne Stunt Show</span><span class="val">Highly underrated. Legitimately excellent. Worth choosing over another ride if time is limited. All four enjoyed it without exception.</span></div>
+<div class="ir"><span class="lbl">Dark Universe at night</span><span class="val">The atmosphere in this area is significantly better after dark. Make it the last stop of the evening if visiting Epic Universe again.</span></div>
+</div></div>
+
+<div class="sec"><div class="slbl">Gear</div>
+<div class="rl">
+<div class="ir"><span class="lbl">Feetures anti-blister socks</span><span class="val">MVP of the trip. Zero blisters across 20,000–30,000 steps per day. Non-negotiable for future park trips.</span></div>
+<div class="ir"><span class="lbl">Cooling towel</span><span class="val">Effective when needed — activated quickly and provided real relief on hot days.</span></div>
+<div class="ir"><span class="lbl">Charging block</span><span class="val">Essential. Used nearly every day. Needs a waterproof zip-lock bag or waterproof case for days involving water rides — the group got lucky on Kali and Fyre Drill.</span></div>
+<div class="ir"><span class="lbl">Ponchos</span><span class="val">Carried but never used. Optional for late May trips. Worth keeping in the bag without overthinking it.</span></div>
+<div class="ir"><span class="lbl">Neck fan</span><span class="val">Brought and used, but positioning directly on the neck limited airflow. Worth experimenting with placement or mounting before the next trip.</span></div>
+<div class="ir"><span class="lbl">Sunglasses on the go</span><span class="val">KETL shorts have a dedicated sunglasses loop — excellent for quick stowing. For hats, find a clip or carabiner solution before the next trip.</span></div>
+<div class="ir"><span class="lbl">Epsom-It Soothing Muscle Lotion</span><span class="val">Roll-on Epsom salt lotion — Rob and Jenna brought this. Highly effective for end-of-day leg soreness. Worth picking up before the next trip.</span></div>
+</div></div>
+
+<div class="sec"><div class="slbl">Deferred experiences — next visit</div>
+<div class="rl">
+<div class="ir"><span class="lbl">Gideon's cookie</span><span class="val">Chocolate chip cookie with Freha — high on the list for next time</span></div>
+<div class="ir"><span class="lbl">The Untrainable Dragon show</span><span class="val">Cancelled on this visit; highly recommended by Marc's niece (former Epic employee)</span></div>
+<div class="ir"><span class="lbl">HP Wizarding World show · Epic</span><span class="val">Also recommended by Marc's niece — didn't get to it this trip</span></div>
+<div class="ir"><span class="lbl">Dark Universe at night</span><span class="val">The group visited but didn't fully use the evening darkness window</span></div>
+<div class="ir"><span class="lbl">Soarin' Across America</span><span class="val">Opened to the public the week after the group visited EPCOT</span></div>
+<div class="ir"><span class="lbl">Indiana Jones Epic Stunt Spectacular</span><span class="val">Wanted to see it; missed the last show timing</span></div>
+<div class="ir"><span class="lbl">Rock 'n' Roller Coaster Muppets</span><span class="val">Visible but not open during the group's HS day</span></div>
+<div class="ir"><span class="lbl">Dudley Do-Right's Ripsaw Falls</span><span class="val">Not running on Day 4</span></div>
+<div class="ir"><span class="lbl">Epic Universe at an earlier sunset</span><span class="val">Late May EDT means ~8:30 PM darkness. A fall or winter visit would give significantly more nighttime park time.</span></div>
+<div class="ir"><span class="lbl">Yoshi's Adventure</span><span class="val">Skipped at Super Nintendo World — do it next time</span></div>
+</div></div>
+</div>
+
 
 <!-- ═══ GLOSSARY ═══ -->
 <div id="pnl-gl" class="pnl">
@@ -982,8 +1365,17 @@ setHeroBg();
 /* ── DATE-AWARE AUTO-TAB ── */
 function autoNav(){
   var ds=new Date().toLocaleDateString('en-CA',{timeZone:'America/New_York'});
-  var map={'2026-05-16':function(){navDirect('d0',null);},'2026-05-17':function(){navDirect('mk','disney');},'2026-05-18':function(){navDirect('ak','disney');},'2026-05-19':function(){navDirect('ep','disney');},'2026-05-20':function(){navDirect('un-ioa','universal');},'2026-05-21':function(){navDirect('un-ioa','universal');},'2026-05-22':function(){navDirect('nx',null);}};
+  var map={
+    '2026-05-16':function(){navDirect('d0','disney');},
+    '2026-05-17':function(){navDirect('mk','disney');},
+    '2026-05-18':function(){navDirect('ak','disney');},
+    '2026-05-19':function(){navDirect('ep','disney');},
+    '2026-05-20':function(){navDirect('un-ioa','universal');},
+    '2026-05-21':function(){navDirect('un-eu','universal');},
+    '2026-05-22':function(){navDirect('d6','disney');}
+  };
   if(map[ds])map[ds]();
+  else navDirect('tr',null);
 }
 autoNav();
 
@@ -1052,11 +1444,57 @@ document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('.app-btn').forEach(function(btn){btn.addEventListener('click',launchApp);});
 });
 
+
+/* ── LIGHTBOX + BEFORE/AFTER COMPARISON ── */
+document.addEventListener('click',function(e){
+  var img=e.target.closest('.tr-photo img,.duck-card img');
+  if(!img)return;
+  e.preventDefault();
+  var before=img.getAttribute('data-ba-before');
+  var overlay=document.getElementById('lb-overlay');
+  if(before){
+    document.getElementById('ba-before').src=before;
+    document.getElementById('ba-after').src=img.src;
+    document.getElementById('ba-container').scrollTop=0;
+    overlay.classList.add('vis','ba-mode');
+  } else {
+    document.getElementById('lb-img').src=img.src;
+    overlay.classList.remove('ba-mode');
+    overlay.classList.add('vis');
+  }
+});
+function closeLb(e){
+  if(e)e.stopPropagation();
+  document.getElementById('lb-overlay').classList.remove('vis','ba-mode');
+}
+document.addEventListener('DOMContentLoaded',function(){
+  var ov=document.getElementById('lb-overlay');
+  if(ov)ov.addEventListener('click',function(e){if(e.target===this)closeLb();});
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
 /* ── SCROLL TO TOP ── */
 window.addEventListener('scroll',function(){
   var s=document.getElementById('scr');
   if(s)s.classList[window.scrollY>300?'add':'remove']('vis');
 });
 </script>
+
+<div class="lb-overlay" id="lb-overlay">
+  <button class="lb-close" onclick="closeLb(event)" aria-label="Close">✕</button>
+  <img class="lb-img" id="lb-img" src="" alt="">
+  <div id="ba-container" onclick="event.stopPropagation()">
+    <div class="ba-compare">
+      <div class="ba-panel">
+        <span class="ba-label">Then</span>
+        <img id="ba-before" src="" alt="Then">
+      </div>
+      <div class="ba-panel">
+        <span class="ba-label">Now</span>
+        <img id="ba-after" src="" alt="Now">
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
